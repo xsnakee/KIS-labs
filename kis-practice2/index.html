@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script lang="javascript">
+
+        let replaceObj = {
+            protocol: {
+                src: /^(https|http)/i,
+                dest: "$&://"
+            },
+            domain_type:{
+                src:/(ru|com)/,
+                dest: ".$&/"
+            },
+            context:{
+                src: /(\/)$/,
+                dest: ""
+            },
+
+            parse_url: function(str){
+                let result = str.replace(this.protocol.src, this.protocol.dest);
+                result = result.replace(this.domain_type.src, this.domain_type.dest);
+                result = result.replace(this.context.src, this.context.dest);
+
+                return result;
+            }
+        };
+        
+    </script>
+</body>
+</html>
