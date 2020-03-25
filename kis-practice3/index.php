@@ -2,8 +2,6 @@
 
 $inputDataArray = file('input.txt');
 
-$outputFile = fopen('output.txt', 'w');
-
 $currentPosition = 0;
 $lotCount = $inputDataArray[$currentPosition++];
 $lotData = array();
@@ -24,8 +22,6 @@ if (count($inputDataArray) > 0 && $lotCount > 0)
 		{
 			$stringDataArray = explode(' ', $inputDataArray[$i]);
 			$gameId = $stringDataArray[0];
-			
-			//var_dump(in_array((int)$gameId, $lotData));
 			
 			//if (in_array($gameId, $lotData)){
 				$winner_team = $stringDataArray[4];
@@ -48,9 +44,3 @@ if (count($inputDataArray) > 0 && $lotCount > 0)
 	}
 	echo ($result);
 }
-
-fclose($outputFile);
-
-
-//fwrite($outputFile, $resultTime);
-//fwrite($outputFile, '\n');
