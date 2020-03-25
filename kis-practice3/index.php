@@ -12,7 +12,7 @@ if (count($inputDataArray) > 0 && $lotCount > 0)
     {
         $stringDataArray = explode(' ', $inputDataArray[$i]);
 		$gameId = $stringDataArray[0];
-        $lotData[$gameId] = array("lot_amount" => $stringDataArray[1], "lot_team" => $stringDataArray[2]);
+        $lotData[$gameId] = array("lot_amount" => $stringDataArray[1], "lot_team" => trim($stringDataArray[2]));
     }
 	
 	$gamesCount = $inputDataArray[$currentPosition++];
@@ -24,13 +24,13 @@ if (count($inputDataArray) > 0 && $lotCount > 0)
 			$gameId = $stringDataArray[0];
 			
 			//if (in_array($gameId, $lotData)){
-				$winner_team = $stringDataArray[4];
+				$winner_team = trim($stringDataArray[4]);
 				$tmp = array("L" =>$stringDataArray[1] , "R" => $stringDataArray[2], "D" => $stringDataArray[3], "win_team" => $winner_team);
 				
 				$lotData[$gameId] = array_merge($tmp, $lotData[$gameId]);
 				
-				$lotData[$gameId]["result"] = ord($lotData[$gameId]["lot_team"]) == ord($winner_team)
-					? $lotData[$gameId]["lot_amount"] * $lotData[$gameId][chr(ord($winner_team))] - $lotData[$gameId]["lot_amount"]
+				$lotData[$gameId]["result"] = $lotData[$gameId]["lot_team"] == $winner_team
+					? $lotData[$gameId]["lot_amount"] * $lotData[$gameId][$winner_team] - $lotData[$gameId]["lot_amount"]
 					: $lotData[$gameId]["lot_amount"] * (-1);
 					
 			//}
