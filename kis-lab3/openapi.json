@@ -1,0 +1,2875 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1",
+        "description":"Описание API для УМИС, разрабаываемого в рамках лабораторных работ по предмету КИС.",
+        "title":"Umis OpenApi",
+        "contact": {
+            "name": "Generalov&Gladchenko",
+            "email": "xsnakee@gmail.com"
+        }
+    },
+    "paths": {
+        "/api/AllergyAnamnesis": {
+            "get": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Получить список всех аллергоанамнезов.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[AllergyAnamnesisDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Создать новый аллергоанамнез",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "allergy",
+                        "in": "body",
+                        "description": "Аллергоанамнез",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/AllergyAnamnesisDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание справочника",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/AllergyAnamnesis/{id}": {
+            "get": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Получить  аллергоанамнез по индетификатору.",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор алергнооанамнеза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[AllergyAnamnesisDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Редактировать аллергоанамнез",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор аллергоанамнеза",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "allergy",
+                        "in": "body",
+                        "description": "Аллергноанамнез",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/AllergyAnamnesisDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование аллергоанамнеза",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Аллергоанамнез с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Пометить аллергоанамнез удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор аллергоанамнеза",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление аллергноанамнеза",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Аллергоанамнез с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/AllergyAnamnesis/{id}/patient": {
+            "get": {
+                "tags": [ "AllergyAnamnesis" ],
+                "summary": "Получить все аллергоанамнезы по индетификатору пациента.",
+                "operationId": "GetByIdPatient",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор пациента.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[AllergyAnamnesisDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Assignment": {
+            "get": {
+                "tags": [ "Assignment" ],
+                "summary": "Получить список всех назначений.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[AssignmentDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "Assignment" ],
+                "summary": "Создать новое назначение",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "assignment",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/AssignmentDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание справочника",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Assignment/{id}": {
+            "get": {
+                "tags": [ "Assignment" ],
+                "summary": "Получить  назначение по индетификатору.",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор назначения.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[AssignmentDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "Assignment" ],
+                "summary": "Редактировать назначение.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор назначения.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "assignment",
+                        "in": "body",
+                        "description": "Назначение.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/AssignmentDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование назначение.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Назначение с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "Assignment" ],
+                "summary": "Пометить назначение удаленным.",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор назначения.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление назначения.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Назначение с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Assignment/{id}/medicalhistory": {
+            "get": {
+                "tags": [ "Assignment" ],
+                "summary": "Получить все назначения по индетификатору истории болезни.",
+                "operationId": "GetByMedicalHistoryId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[AssignmentDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/CatalogFields": {
+            "get": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Получить список полей справочников",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[CatalogFieldDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Создать новое поле для справочника",
+                "description": "Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "value",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogFieldDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание поля справочника",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найден справочник",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/CatalogFields/{id}": {
+            "get": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Получить поле справочника по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор поля справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[CatalogFieldDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Редактировать поле справочника",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор поля справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "catalogField",
+                        "in": "body",
+                        "description": "Поле справочника",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogFieldDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование поля справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Поле справочника с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Привязать поле к справочнику",
+                "description": "Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "catalogField",
+                        "in": "body",
+                        "description": "Поле справочника",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogFieldDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка поля к справочнику",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найден справочник",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "CatalogFields" ],
+                "summary": "Поменить поле справочника удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор поля справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление поля справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Поле справочника с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Catalogs": {
+            "get": {
+                "tags": [ "Catalogs" ],
+                "summary": "Получить список справочников",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[CatalogDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "Catalogs" ],
+                "summary": "Создать новый справочник",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "catalog",
+                        "in": "body",
+                        "description": "Справочник",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание справочника",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Catalogs/{id}": {
+            "get": {
+                "tags": [ "Catalogs" ],
+                "summary": "Получить справочник по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[CatalogDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "Catalogs" ],
+                "summary": "Редактировать справочник",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "catalog",
+                        "in": "body",
+                        "description": "Справочник",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Справочник с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "Catalogs" ],
+                "summary": "Пометить справочник удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Справочник с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/CatalogTypes": {
+            "get": {
+                "tags": [ "CatalogTypes" ],
+                "summary": "Получить список типов справочников",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[CatalogTypeDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "CatalogTypes" ],
+                "summary": "Создать новый тип справочника",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "catalogType",
+                        "in": "body",
+                        "description": "Тип справочника",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogTypeDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание типа справочника",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/CatalogTypes/{id}": {
+            "get": {
+                "tags": [ "CatalogTypes" ],
+                "summary": "Получить типа справочника по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор типа справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[CatalogTypeDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "CatalogTypes" ],
+                "summary": "Редактировать тип справочника",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор типа справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "catalogType",
+                        "in": "body",
+                        "description": "Тип справочника",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/CatalogTypeDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование типа справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Справочник с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "CatalogTypes" ],
+                "summary": "Пометить тип справочника удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор типа справочника",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление типа справочника",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Справочник с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Diagnosis": {
+            "get": {
+                "tags": [ "Diagnosis" ],
+                "summary": "Получить список всех диагназов.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[DiagnosisDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "Diagnosis" ],
+                "summary": "Создать новый диагноз",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "diagnosis",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/DiagnosisDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание диагноза.",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Diagnosis/{id}": {
+            "get": {
+                "tags": [ "Diagnosis" ],
+                "summary": "Получить  диагноз по индетификатору.",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор диагноза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[DiagnosisDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "Diagnosis" ],
+                "summary": "Редактировать диагноз.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор диагноза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "diagnosis",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/DiagnosisDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование диагноз.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Диагноз с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "Diagnosis" ],
+                "summary": "Пометить диагноз.",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор диагноза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление диагноза.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Диагноз с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/DisabilityDescription": {
+            "get": {
+                "tags": [ "DisabilityDescription" ],
+                "summary": "Получить список всех пациентов с группой инвалидности.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[DisabilityDescriptionDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "DisabilityDescription" ],
+                "summary": "Создать новую инвалидность определенного пациента.",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "mediacalAnamnesis",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MediacalAnamnesisDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание инвалидности определенного опациента.",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/DisabilityDescription/{id}": {
+            "put": {
+                "tags": [ "DisabilityDescription" ],
+                "summary": "Редактировать инвалидность определенного пациента.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор инвалидности определенного пациента.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "disabilityDescription",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/DisabilityDescriptionDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование инвалидности определенногоо пациента.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Инвалидность определенного пациента с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "DisabilityDescription" ],
+                "summary": "Пометить описание инвалидности пациента удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор инвалидности пациента.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление инвалидности пациента.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Инвалидность пациента с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MediacalAnamnesis": {
+            "get": {
+                "tags": [ "MediacalAnamnesis" ],
+                "summary": "Получить список всех медицинских анамнезов.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MediacalAnamnesisDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "MediacalAnamnesis" ],
+                "summary": "Создать новый медицинский анамнез.",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "mediacalAnamnesis",
+                        "in": "body",
+                        "description": "Медицинский анамнез.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MediacalAnamnesisDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание справочника.",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MediacalAnamnesis/{id}": {
+            "get": {
+                "tags": [ "MediacalAnamnesis" ],
+                "summary": "Получить медицинский анамнез по идентификатору.",
+                "operationId": "GetByMedicalAnamnesId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинского обследования.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[MediacalAnamnesisDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "MediacalAnamnesis" ],
+                "summary": "Редактировать медицинский анамнез.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинского анамнеза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "mediacalAnamnesis",
+                        "in": "body",
+                        "description": "Медицинский анамнез.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MediacalAnamnesisDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование медицинского анамнеза.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Медицинский анамнез с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "MediacalAnamnesis" ],
+                "summary": "Пометить медицинский анамнез удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинского анамнеза.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление аллергноанамнеза.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Медицинский анамнез с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "JsonResult[List[AllergyAnamnesisDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/AllergyAnamnesisDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "AllergyAnamnesisDto": {
+            "description": "Аллергоанамнез.",
+            "type": "object",
+            "properties": {
+                "patient": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Пациент."
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "note": {
+                    "description": "Словесное описание.",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "PatientDto": {
+            "description": "Пациент",
+            "type": "object",
+            "properties": {
+                "surname": {
+                    "description": "Имя",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Фамилия",
+                    "type": "string"
+                },
+                "patronymic": {
+                    "description": "Отчество",
+                    "type": "string"
+                },
+                "passport": {
+                    "description": "Паспорт (серия/номер)",
+                    "type": "string"
+                },
+                "snils": {
+                    "description": "СНИЛС",
+                    "type": "string"
+                },
+                "omc": {
+                    "description": "Номер ОМС",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "Список телефонов",
+                    "type": "string"
+                },
+                "address": {
+                    "description": "Адреса (прописки, проживания)",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Электронная почта",
+                    "type": "string"
+                },
+                "birthday": {
+                    "format": "date-time",
+                    "description": "Дата рождения",
+                    "type": "string"
+                },
+                "gender": {
+                    "format": "int32",
+                    "description": "Пол",
+                    "enum": [ 0, 1, 2 ],
+                    "type": "integer"
+                },
+                "bloodGroup": {
+                    "format": "int32",
+                    "description": "Группа крови",
+                    "enum": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
+                    "type": "integer"
+                },
+                "disabilityDescription": {
+                    "$ref": "#/definitions/DisabilityDescriptionDto",
+                    "description": "Уточнение/описание группы инвалидности"
+                },
+                "disabilityDescriptionId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalHistories": {
+                    "description": "Истории болезней",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalHistoryDto" }
+                },
+                "workHistory": {
+                    "$ref": "#/definitions/WorkHistoryDto",
+                    "description": "Трудовой анамнез"
+                },
+                "workHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "allergyAnamnesis": {
+                    "$ref": "#/definitions/AllergyAnamnesisDto",
+                    "description": "Аллерго анамнез"
+                },
+                "allergyAnamnesisId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "CatalogFieldValueDto": {
+            "description": "Значение поля справочника",
+            "type": "object",
+            "properties": {
+                "catalogToCatalogField": {
+                    "$ref": "#/definitions/CatalogToCatalogFieldDto",
+                    "description": "Отношение справочника к полю справочника"
+                },
+                "catalogToCatalogFieldId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "value": {
+                    "description": "Значение",
+                    "type": "string"
+                },
+                "value2": {
+                    "description": "Значение2 (используется для диапазонов)",
+                    "type": "string"
+                },
+                "dianosisId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "mediacalAnamnesisId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "physiologicalIndicationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "workHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "allergyAnamnesisId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalExaminationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "disabilityDescriptionId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "physicalExaminationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalHistoryNoteId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "DisabilityDescriptionDto": {
+            "description": "Описание инвалидности",
+            "type": "object",
+            "properties": {
+                "disabilityGroup": {
+                    "format": "int32",
+                    "description": "Группа инвалидности",
+                    "enum": [ 0, 1, 2, 3, 4 ],
+                    "type": "integer"
+                },
+                "patient": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Пациент"
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "note": {
+                    "description": "Словесное описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "MedicalHistoryDto": {
+            "description": "История болезни",
+            "type": "object",
+            "properties": {
+                "patient": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Пациент"
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalAnamneses": {
+                    "description": "Анамнезы",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MediacalAnamnesisDto" }
+                },
+                "physiologicalIndications": {
+                    "description": "Физиологические показания",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/PhysiologicalIndicationDto" }
+                },
+                "medicalExaminations": {
+                    "description": "Обследования",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalExaminationDto" }
+                },
+                "physicalExaminations": {
+                    "description": "Осмотры",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/PhysicalExaminationDto" }
+                },
+                "diagnoses": {
+                    "description": "Диагнозы",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/DiagnosisDto" }
+                },
+                "notes": {
+                    "description": "Заметки",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalHistoryNoteDto" }
+                },
+                "assignments": {
+                    "description": "Назначения",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/AssignmentDto" }
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "WorkHistoryDto": {
+            "description": "Трудовой анамнез.",
+            "type": "object",
+            "properties": {
+                "patient": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Пациент."
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "note": {
+                    "description": "Заметка.",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "CatalogToCatalogFieldDto": {
+            "description": "Связь справоника и его полей",
+            "type": "object",
+            "properties": {
+                "catalog": {
+                    "$ref": "#/definitions/CatalogDto",
+                    "description": "Справочник"
+                },
+                "catalogId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "catalogField": {
+                    "$ref": "#/definitions/CatalogFieldDto",
+                    "description": "Поле справочника"
+                },
+                "catalogFieldId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "defaultValue": {
+                    "description": "Значение по умолчанию",
+                    "type": "string"
+                },
+                "defaultValue2": {
+                    "description": "Значение по умолчанию (используется из диапазона)",
+                    "type": "string"
+                },
+                "units": {
+                    "description": "Единица измерения",
+                    "type": "string"
+                }
+            }
+        },
+        "MediacalAnamnesisDto": {
+            "type": "object",
+            "properties": {
+                "anamnesisType": {
+                    "format": "int32",
+                    "description": "Тип анамнеза",
+                    "enum": [ 0, 1, 2, 3, 4 ],
+                    "type": "integer"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "Словесное описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "PhysiologicalIndicationDto": {
+            "description": "Физиологические показания",
+            "type": "object",
+            "properties": {
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "note": {
+                    "description": "Словесное описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "MedicalExaminationDto": {
+            "description": "Медицинское обследование",
+            "type": "object",
+            "properties": {
+                "medicalExaminationType": {
+                    "format": "int32",
+                    "description": "Тип обследования",
+                    "enum": [ 0, 1 ],
+                    "type": "integer"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalTestResults": {
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalTestResultDto" }
+                },
+                "description": {
+                    "description": "Описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "PhysicalExaminationDto": {
+            "description": "Осмотр",
+            "type": "object",
+            "properties": {
+                "physicalExaminationType": {
+                    "format": "int32",
+                    "description": "Тип осмотр",
+                    "enum": [ 0, 1, 2, 3, 4, 5 ],
+                    "type": "integer"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "Словесное описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "DiagnosisDto": {
+            "type": "object",
+            "properties": {
+                "anamnesisType": {
+                    "format": "int32",
+                    "description": "Тип анамнеза",
+                    "enum": [ 0, 1, 2, 3 ],
+                    "type": "integer"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "Словесное описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "MedicalHistoryNoteDto": {
+            "description": "Заметка для истории болезни",
+            "type": "object",
+            "properties": {
+                "subject": {
+                    "description": "Тема",
+                    "type": "string"
+                },
+                "content": {
+                    "description": "Текст",
+                    "type": "string"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "AssignmentDto": {
+            "description": "Назначение",
+            "type": "object",
+            "properties": {
+                "assignmentType": {
+                    "format": "int32",
+                    "description": "Тип назначения",
+                    "enum": [ 0, 1, 2, 3, 4, 5 ],
+                    "type": "integer"
+                },
+                "medicalHistory": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "История болезни"
+                },
+                "medicalHistoryId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalTestResult": {
+                    "$ref": "#/definitions/MedicalTestResultDto",
+                    "description": "Результат анализа"
+                },
+                "medicalTestResultId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "medicalExaminationResult": {
+                    "$ref": "#/definitions/MedicalExaminationDto",
+                    "description": "Результат обследования"
+                },
+                "medicalExaminationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "physiologicalExaminationResult": {
+                    "$ref": "#/definitions/PhysicalExaminationDto",
+                    "description": "Результат осмотра"
+                },
+                "physiologicalExaminationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "physiologicalIndicationResult": {
+                    "$ref": "#/definitions/PhysiologicalIndicationDto",
+                    "description": "Результат снятия физиологических показаний"
+                },
+                "physiologicalIndicationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "CatalogDto": {
+            "description": "Справочник",
+            "type": "object",
+            "properties": {
+                "catalogType": {
+                    "$ref": "#/definitions/CatalogTypeDto",
+                    "description": "Тип каталога"
+                },
+                "name": {
+                    "description": "Название справочника",
+                    "type": "string"
+                },
+                "catalogToCatalogFields": {
+                    "description": "Поля справочника",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogToCatalogFieldDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "CatalogFieldDto": {
+            "description": "Поле справочника",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Название поля",
+                    "type": "string"
+                },
+                "dataType": {
+                    "format": "int32",
+                    "description": "Тип данных",
+                    "enum": [ 0, 1, 2, 3, 4, 5, 6 ],
+                    "type": "integer"
+                },
+                "catalogToCatalogField": {
+                    "$ref": "#/definitions/CatalogToCatalogFieldDto",
+                    "description": "Отношение справочника к полю справочника"
+                },
+                "catalogToCatalogFieldId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "MedicalTestResultDto": {
+            "description": "Результаты анализа",
+            "type": "object",
+            "properties": {
+                "medicalExamination": {
+                    "$ref": "#/definitions/MedicalExaminationDto",
+                    "description": "Обследование"
+                },
+                "medicalExaminationId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "patient": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Пациент"
+                },
+                "patientId": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "Описание",
+                    "type": "string"
+                },
+                "values": {
+                    "description": "Значение из каталога",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldValueDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "CatalogTypeDto": {
+            "description": "Тип справочника",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Название типа",
+                    "type": "string"
+                },
+                "catalog": {
+                    "description": "Каталог",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogDto" }
+                },
+                "createDate": {
+                    "format": "date-time",
+                    "description": "Дата создания объекта",
+                    "type": "string"
+                },
+                "lastModificationDate": {
+                    "format": "date-time",
+                    "description": "Дата последнего изменения",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "JsonVoidResult": {
+            "description": "Стандартный HTTP Ответ",
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[Int32]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "format": "int32",
+                    "description": "Данные",
+                    "type": "integer"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[AllergyAnamnesisDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/AllergyAnamnesisDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[AssignmentDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/AssignmentDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[AssignmentDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/AssignmentDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "UserLoginDto": {
+            "description": "Модель пользователя для входа в систему",
+            "type": "object",
+            "properties": {
+                "login": {
+                    "description": "Логин",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Пароль",
+                    "type": "string"
+                },
+                "rememberMe": {
+                    "description": "Запомнить пользователя (24 часа)",
+                    "type": "boolean"
+                }
+            }
+        },
+        "JsonResult[String]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "type": "string"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[CatalogFieldDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogFieldDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[CatalogFieldDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/CatalogFieldDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[CatalogDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[CatalogDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/CatalogDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[CatalogTypeDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/CatalogTypeDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[CatalogTypeDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/CatalogTypeDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[DiagnosisDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/DiagnosisDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[DiagnosisDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/DiagnosisDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[DisabilityDescriptionDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/DisabilityDescriptionDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[MediacalAnamnesisDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MediacalAnamnesisDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[MediacalAnamnesisDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/MediacalAnamnesisDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "BaseFilter": {
+            "description": "Базовая модель фильтра",
+            "type": "object",
+            "properties": {
+                "pageNumber": {
+                    "format": "int32",
+                    "description": "Номер страницы",
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "format": "int32",
+                    "description": "Количество позиций на страницу",
+                    "type": "integer"
+                },
+                "sortDirection": {
+                    "description": "Направление сортировки (ask,desc)",
+                    "type": "string"
+                },
+                "sortField": {
+                    "description": "Имя поля сортировки",
+                    "type": "string"
+                },
+                "keyWords": {
+                    "description": "Ключевые слова \r\nдля каждой сущности, при фильтрации можно использовать различные поля",
+                    "type": "string"
+                },
+                "withRemoved": {
+                    "description": "Просмотр удаленых сущностей",
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "name": "Authorization",
+            "in": "header",
+            "type": "apiKey",
+            "description": "Введите слово 'Bearer', затем пробел и JWT"
+        }
+    },
+    "security": [ { "Bearer": [] } ],
+    "tags": [
+        {
+            "name": "AllergyAnamnesis",
+            "description": "Контроллер для работы с аллергоанамнезом"
+        },
+        {
+            "name": "Assignment",
+            "description": "Контроллер для работы с назначениями"
+        },
+        {
+            "name": "CatalogFields",
+            "description": "Контроллер для работы с полями справочников"
+        },
+        {
+            "name": "Catalogs",
+            "description": "Контроллер для работы со справочниками"
+        },
+        {
+            "name": "CatalogTypes",
+            "description": "Контроллер для работы с типами типов справочников"
+        },
+        {
+            "name": "Diagnosis",
+            "description": "Контроллер для работы c диагнозом"
+        },
+        {
+            "name": "DisabilityDescription",
+            "description": "Контроллер для работы с инвалидностью"
+        },
+        {
+            "name": "MediacalAnamnesis",
+            "description": "Контроллер для работы с медицинским анамнезом"
+        }
+    ]
+}
