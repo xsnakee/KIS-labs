@@ -9,6 +9,56 @@
             "email": "xsnakee@gmail.com"
         }
     },
+    "servers":[
+       {
+          "url": "https://localhost:5000/",
+          "description": "Debug",
+          "variables": {
+             "standName": {
+                "default": "Debug"
+             },
+             "basePath": {
+               "default": "v1"
+             }
+          }
+       },
+       {
+          "url": "https://31.28.244.114:5000/",
+          "description": "Development",
+          "variables": {
+             "standName": {
+                "default": "Development"
+             },
+             "basePath": {
+               "default": "v1"
+             }
+          }
+       },
+       {
+          "url": "https://31.28.244.114:5002/",
+          "description": "Demo",
+          "variables": {
+             "standName": {
+                "default": "Demo"
+             },
+             "basePath": {
+               "default": "v1"
+             }
+          }
+       },
+       {
+          "url": "https://31.28.244.114:5004/",
+          "description": "Release",
+          "variables": {
+             "standName": {
+                "default": "Release"
+             },
+             "basePath": {
+               "default": "v1"
+             }
+          }
+       }
+    ],
     "paths": {
         "/api/AllergyAnamnesis": {
             "get": {
