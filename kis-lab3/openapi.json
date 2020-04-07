@@ -1398,6 +1398,1552 @@
                     }
                 }
             }
+        },
+        "/api/MedicalExamination": {
+            "get": {
+                "tags": [ "MedicalExamination" ],
+                "summary": "Получить список всех медицинских обследований.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MedicalExaminationDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "MedicalExamination" ],
+                "summary": "Создать медицинское обследование.",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalTestResult",
+                        "in": "body",
+                        "description": "Медицинское обследование.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalTestResultDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание медицинского обследования.",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalExamination/{id}": {
+            "get": {
+                "tags": [ "MedicalExamination" ],
+                "summary": "Получить медицинское обследование по идентификатору.",
+                "operationId": "GetByMedicalExaminationId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинского обследования.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[MedicalExaminationDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "MedicalExamination" ],
+                "summary": "Редактировать медицинское обследование.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинское обследование.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "medicalTestResult",
+                        "in": "body",
+                        "description": "Медицинское обследование.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalTestResultDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование назначение.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Назначение с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "MedicalExamination" ],
+                "summary": "Пометить медицинское обследование удаленным.",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медицинского обследования.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление медицинского обследования.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Медицинское обследование с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalHistory": {
+            "get": {
+                "tags": [ "MedicalHistory" ],
+                "summary": "Получить все истории болезни.",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MedicalHistoryDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "MedicalHistory" ],
+                "summary": "Создать новую историю болезни.",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalHistory",
+                        "in": "body",
+                        "description": "История болезни.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalHistoryDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание истории болезни.",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalHistory/{id}": {
+            "get": {
+                "tags": [ "MedicalHistory" ],
+                "summary": "Получить  историю болезни по индетификатору.",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных.",
+                        "schema": { "$ref": "#/definitions/JsonResult[MedicalHistoryDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "MedicalHistory" ],
+                "summary": "Редактировать историю болезни.",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни.",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "medicalHistory",
+                        "in": "body",
+                        "description": "История болезни.",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalHistoryDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование истории болезни.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "История болезни с заданным идентификатором не найден.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере.",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "MedicalHistory" ],
+                "summary": "Пометить историю болезни удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление истории болезнт",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "История болезни с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalHistoryNotes/medicalHistory/{medicalHistoryId}": {
+            "get": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Получить список заметок по идентификатору истории болезни",
+                "operationId": "GetByMedicalHistoryId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalHistoryId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MedicalHistoryNoteDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalHistoryNotes/{id}": {
+            "get": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Получить заметку по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[MedicalHistoryNoteDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Редактировать заметку истории болезни",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор заметки",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "note",
+                        "in": "body",
+                        "description": "Заметка",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalHistoryNoteDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование заметки",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Заметки с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Привязать заметку к истории болезни",
+                "description": "Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "note",
+                        "in": "body",
+                        "description": "Заметка",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalHistoryNoteDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка заметки к истории болезни",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Поменить заметку удаленной",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор заметки",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление заметки",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Заметки с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalHistoryNotes": {
+            "post": {
+                "tags": [ "MedicalHistoryNotes" ],
+                "summary": "Создать новую заметку",
+                "description": "Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "note",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalHistoryNoteDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание заметки",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalTestResults/MedicalExamination/{medicalExaminationId}": {
+            "get": {
+                "tags": [ "MedicalTestResults" ],
+                "summary": "Получить список результатов анализов по идентификатору обследования",
+                "operationId": "GetByMedicalExaminationId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalExaminationId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MedicalTestResultDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalTestResults/patient/{patientId}": {
+            "get": {
+                "tags": [ "MedicalTestResults" ],
+                "summary": "Получить список результатов анализов по идентификатору пациента",
+                "operationId": "GetByPatientId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[MedicalTestResultDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/MedicalTestResults/{id}": {
+            "get": {
+                "tags": [ "MedicalTestResults" ],
+                "summary": "Получить результат анализа по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[MedicalTestResultDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "MedicalTestResults" ],
+                "summary": "Привязать результат анализа к обследованию",
+                "description": "Для привязки результата анализа к обследрванию указывается внешний ключ в поле MedicalExaminationId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор обследования",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "medicalTestResult",
+                        "in": "body",
+                        "description": "Результат анализа",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/MedicalTestResultDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка результата анализа к обследованию",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдено обследование",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "MedicalTestResults" ],
+                "summary": "Поменить результат анализа удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор результата анализа",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление результата анализа",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Результата анализа с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Patients": {
+            "get": {
+                "tags": [ "Patients" ],
+                "summary": "Получить список пациентов",
+                "operationId": "Get",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[PatientDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "Patients" ],
+                "summary": "Создать нового пациента",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "patient",
+                        "in": "body",
+                        "description": "Пациент",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PatientDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание пациента",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/Patients/{id}": {
+            "get": {
+                "tags": [ "Patients" ],
+                "summary": "Получить пациента по индетификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор пациента",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[PatientDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "Patients" ],
+                "summary": "Редактировать данные пациента",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор пациента",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "patient",
+                        "in": "body",
+                        "description": "Пациент",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PatientDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование данных пациента",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Пациента с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "Patients" ],
+                "summary": "Пометить пациента удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор пациента",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление пациента",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Пациент с заданным идентификатором не найден",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysicalExaminations/medicalHistory/{medicalHistoryId}": {
+            "get": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Получить список медосмотров по идентификатору истории болезни",
+                "operationId": "GetByMedicalHistoryId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalHistoryId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[PhysicalExaminationDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysicalExaminations/{id}": {
+            "get": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Получить медосмотр по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[PhysicalExaminationDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Редактировать медосмотр",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медосмотра",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "description": "Медосмотр",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysicalExaminationDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование медосмотра",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Медосмотра с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Привязать медосмотр к истории болезни",
+                "description": "Для привязки медосмотра к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "description": "Медосмотр",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysicalExaminationDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка медосмотра к истории болезни",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Поменить медосмотр удаленным",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор медосмотра",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление медосмотра",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Медосмотра с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysicalExaminations": {
+            "post": {
+                "tags": [ "PhysicalExaminations" ],
+                "summary": "Создать новый медосмотр",
+                "description": "Для привязки медосмотр к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysicalExaminationDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание медосмотра",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysiologicalIndications/medicalHistory/{medicalHistoryId}": {
+            "get": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Получить список физиологических показаний по идентификатору истории болезни",
+                "operationId": "GetByMedicalHistoryId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "medicalHistoryId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[PhysiologicalIndicationDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysiologicalIndications/{id}": {
+            "get": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Получить физиологические показания по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[PhysiologicalIndicationDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Редактировать физиологические показания",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор физиологических показаний",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "description": "Физиологические показания",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysiologicalIndicationDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование физиологических показаний",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Физиологических показаний с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Привязать физиологические показания к истории болезни",
+                "description": "Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор истории болезни",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "description": "Физиологические показания",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysiologicalIndicationDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка физиологических показаний к истории болезни",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Поменить физиологические показания удаленными",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор физиологических показаний",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление физиологических показаний",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Физиологических показаний с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/PhysiologicalIndications": {
+            "post": {
+                "tags": [ "PhysiologicalIndications" ],
+                "summary": "Создать новые физиологические показания",
+                "description": "Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "examination",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/PhysiologicalIndicationDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание физиологических показаний",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найдена история болезни",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/WorkHistories/patient/{patientId}": {
+            "get": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Получить список трудовых анамнезов по идентификатору пациента",
+                "operationId": "GetByPatientId",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "patientId",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[List[WorkHistoryDto]]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/WorkHistories/{id}": {
+            "get": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Получить трудовой анамнез по идентификатору",
+                "operationId": "GetById",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное выполнение запроса данных",
+                        "schema": { "$ref": "#/definitions/JsonResult[WorkHistoryDto]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "put": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Редактировать трудовой анамнез",
+                "operationId": "Put",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор трудового анамнеза",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "workHistory",
+                        "in": "body",
+                        "description": "Трудовой анамнез",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/WorkHistoryDto" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное редактирование трудового анамнеза",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Трудовой анамнез с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "post": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Привязать трудовой анамнез к пациенту",
+                "description": "Для привязки трудового анамнеза к пациенту указывается внешний ключ в поле PatientId",
+                "operationId": "LinkFieldToCatalog",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор пациента",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "workHistory",
+                        "in": "body",
+                        "description": "Трудовой анамнез",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/WorkHistoryDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешная привязка трудового анамнеза к пациенту",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найден пациент",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Поменить трудовой удаленными",
+                "operationId": "Delete",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор трудового анамнеза",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешное удаление трудового анамнеза",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Трудовой анамнез с заданным идентификатором не найдено",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
+        },
+        "/api/WorkHistories": {
+            "post": {
+                "tags": [ "WorkHistories" ],
+                "summary": "Создать новый трудовой анамнез",
+                "description": "Для привязки трудового анамнеза к пациента указывается внешний ключ в поле PatientId",
+                "operationId": "Post",
+                "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "workHistory",
+                        "in": "body",
+                        "required": false,
+                        "schema": { "$ref": "#/definitions/WorkHistoryDto" }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Успешное создание трудового анамнеза",
+                        "schema": { "$ref": "#/definitions/JsonResult[Int32]" }
+                    },
+                    "401": {
+                        "description": "Ошибка авторизации",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "404": {
+                        "description": "Не найден пациент",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    },
+                    "500": {
+                        "description": "Возникло исключение на сервере",
+                        "schema": { "$ref": "#/definitions/JsonVoidResult" }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -2796,6 +4342,370 @@
                 }
             }
         },
+        "JsonResult[List[MedicalExaminationDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalExaminationDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[MedicalExaminationDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/MedicalExaminationDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[MedicalHistoryDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalHistoryDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[MedicalHistoryDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/MedicalHistoryDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[MedicalHistoryNoteDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalHistoryNoteDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[MedicalHistoryNoteDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/MedicalHistoryNoteDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[MedicalTestResultDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/MedicalTestResultDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[MedicalTestResultDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/MedicalTestResultDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[PatientDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/PatientDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[PatientDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/PatientDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[PhysicalExaminationDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/PhysicalExaminationDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[PhysicalExaminationDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/PhysicalExaminationDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[List[PhysiologicalIndicationDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/PhysiologicalIndicationDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[PhysiologicalIndicationDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/PhysiologicalIndicationDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
         "BaseFilter": {
             "description": "Базовая модель фильтра",
             "type": "object",
@@ -2825,6 +4735,84 @@
                 "withRemoved": {
                     "description": "Просмотр удаленых сущностей",
                     "type": "boolean"
+                }
+            }
+        },
+        "UserRegistrationDto": {
+            "description": "Сущность для регистрации пользователей",
+            "type": "object",
+            "properties": {
+                "userName": {
+                    "description": "Логин пользователя",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "E-mail пользователя",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Пароль",
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "description": "Номер телефона",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "int32",
+                    "description": "Идентификатор сущности",
+                    "type": "integer"
+                }
+            }
+        },
+        "JsonResult[List[WorkHistoryDto]]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "Данные",
+                    "uniqueItems": false,
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/WorkHistoryDto" }
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
+                }
+            }
+        },
+        "JsonResult[WorkHistoryDto]": {
+            "description": "стандартный Http ответ с данными",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/WorkHistoryDto",
+                    "description": "Данные"
+                },
+                "statusCode": {
+                    "format": "int32",
+                    "description": "Код ответа http",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "Сообщение об ошибке",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "Результаты валидации",
+                    "type": "object",
+                    "additionalProperties": { "type": "object" }
                 }
             }
         }
@@ -2870,6 +4858,38 @@
         {
             "name": "MediacalAnamnesis",
             "description": "Контроллер для работы с медицинским анамнезом"
+        },
+        {
+            "name": "MedicalExamination",
+            "description": "Контроллер для работы с медицинским обследованием"
+        },
+        {
+            "name": "MedicalHistory",
+            "description": "Контроллер для работы с историями болезней"
+        },
+        {
+            "name": "MedicalHistoryNotes",
+            "description": "Контроллер для работы с заметками истории болезни"
+        },
+        {
+            "name": "MedicalTestResults",
+            "description": "Контроллер для работы с результатами анализов"
+        },
+        {
+            "name": "Patients",
+            "description": "Контроллер для работы с пациентами"
+        },
+        {
+            "name": "PhysicalExaminations",
+            "description": "Контроллер для работы с медицинскими осмотрами"
+        },
+        {
+            "name": "PhysiologicalIndications",
+            "description": "Контроллер для работы с физиологическими показаниями"
+        },
+        {
+            "name": "WorkHistories",
+            "description": "Контроллер для работы с трудовыми анамнезами пациентов"
         }
     ]
 }
