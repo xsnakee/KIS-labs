@@ -64,7 +64,7 @@
             "get": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Получить список всех аллергоанамнезов.",
-                
+                "operationId": "GetAllergyAnamnesesList",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -86,6 +86,7 @@
             "post": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Создать новый аллергоанамнез",
+                "operationId": "CreateAllergyAnamnesis",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -118,6 +119,7 @@
             "get": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Получить  аллергоанамнез по индетификатору.",
+                "operationId": "GetAllergyAnamnesisById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -149,6 +151,7 @@
             "put": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Редактировать аллергоанамнез",
+                "operationId": "EditAllergyAnamnesis",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -191,6 +194,7 @@
             "delete": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Пометить аллергоанамнез удаленным",
+                "operationId": "SoftDeleteAllergyAnamnesis",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -228,6 +232,7 @@
             "get": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Получить все аллергоанамнезы по индетификатору пациента.",
+                "operationId": "GetAllergyAnamnesesByPatientId",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -261,6 +266,7 @@
             "get": {
                 "tags": [ "Assignment" ],
                 "summary": "Получить список всех назначений.",
+                "operationId": "GetAssignmentsList",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -283,6 +289,7 @@
             "post": {
                 "tags": [ "Assignment" ],
                 "summary": "Создать новое назначение",
+                "operationId": "CreateAssignment",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -314,6 +321,7 @@
             "get": {
                 "tags": [ "Assignment" ],
                 "summary": "Получить  назначение по индетификатору.",
+                "operationId": "GetAssignmentById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -345,6 +353,7 @@
             "put": {
                 "tags": [ "Assignment" ],
                 "summary": "Редактировать назначение.",
+                "operationId": "EditAssignment",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -387,6 +396,7 @@
             "delete": {
                 "tags": [ "Assignment" ],
                 "summary": "Пометить назначение удаленным.",
+                "operationId": "AssignmentSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -424,6 +434,7 @@
             "get": {
                 "tags": [ "Assignment" ],
                 "summary": "Получить все назначения по индетификатору истории болезни.",
+                "operationId": "GetAssignmentsByMedicalHistoryId",
               
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -457,6 +468,7 @@
             "get": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Получить список полей справочников",
+                "operationId": "GetCatalogFields",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -479,6 +491,7 @@
             "post": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Создать новое поле для справочника",
+                "operationId": "CreateCatalogField",
                 "description": "Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
@@ -515,6 +528,7 @@
             "get": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Получить поле справочника по идентификатору",
+                "operationId": "GetCatalogFieldById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -546,6 +560,7 @@
             "put": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Редактировать поле справочника",
+                "operationId": "EditCatalogField",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -588,6 +603,7 @@
             "post": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Привязать поле к справочнику",
+                "operationId": "LinkCatalogFieldToCatalog",
                 "description": "Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -630,7 +646,7 @@
             "delete": {
                 "tags": [ "CatalogFields" ],
                 "summary": "Поменить поле справочника удаленным",
-                
+                "operationId": "CatalogFieldsSoftDelete",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -667,7 +683,7 @@
             "get": {
                 "tags": [ "Catalogs" ],
                 "summary": "Получить список справочников",
-                
+                "operationId": "GetCatalogs",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -689,7 +705,7 @@
             "post": {
                 "tags": [ "Catalogs" ],
                 "summary": "Создать новый справочник",
-                
+                "operationId": "CreateCatalog",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -721,6 +737,7 @@
             "get": {
                 "tags": [ "Catalogs" ],
                 "summary": "Получить справочник по идентификатору",
+                "operationId": "GetCatalogsById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -752,7 +769,7 @@
             "put": {
                 "tags": [ "Catalogs" ],
                 "summary": "Редактировать справочник",
-                
+                "operationId": "EditCatalog",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -794,7 +811,7 @@
             "delete": {
                 "tags": [ "Catalogs" ],
                 "summary": "Пометить справочник удаленным",
-                
+                "operationId": "CatalogSoftDelete",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -831,7 +848,7 @@
             "get": {
                 "tags": [ "CatalogTypes" ],
                 "summary": "Получить список типов справочников",
-                
+                "operationId": "GetCatalogTypes",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -853,6 +870,7 @@
             "post": {
                 "tags": [ "CatalogTypes" ],
                 "summary": "Создать новый тип справочника",
+                "operationId": "CreateCatalogType",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -885,6 +903,7 @@
             "get": {
                 "tags": [ "CatalogTypes" ],
                 "summary": "Получить типа справочника по идентификатору",
+                "operationId": "GetCatalogTypeById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -916,6 +935,7 @@
             "put": {
                 "tags": [ "CatalogTypes" ],
                 "summary": "Редактировать тип справочника",
+                "operationId": "EditCatalogType",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -958,6 +978,7 @@
             "delete": {
                 "tags": [ "CatalogTypes" ],
                 "summary": "Пометить тип справочника удаленным",
+                "operationId": "CatalogTypeSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -995,6 +1016,7 @@
             "get": {
                 "tags": [ "Diagnosis" ],
                 "summary": "Получить список всех диагназов.",
+                "operationId": "GetDiagnosesList",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1017,6 +1039,7 @@
             "post": {
                 "tags": [ "Diagnosis" ],
                 "summary": "Создать новый диагноз",
+                "operationId": "CreateDiagnosis",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1048,6 +1071,7 @@
             "get": {
                 "tags": [ "Diagnosis" ],
                 "summary": "Получить  диагноз по индетификатору.",
+                "operationId": "GetDiagnosisById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1079,6 +1103,7 @@
             "put": {
                 "tags": [ "Diagnosis" ],
                 "summary": "Редактировать диагноз.",
+                "operationId": "EditDiagnosis",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1119,7 +1144,8 @@
             },
             "delete": {
                 "tags": [ "Diagnosis" ],
-                "summary": "Пометить диагноз.",
+                "summary": "Пометить диагноз удаленным.",
+                "operationId": "DiagnosisSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1157,6 +1183,7 @@
             "get": {
                 "tags": [ "DisabilityDescription" ],
                 "summary": "Получить список всех пациентов с группой инвалидности.",
+                "operationId": "GetPatientByDisabilityDescriptionId",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1179,7 +1206,7 @@
             "post": {
                 "tags": [ "DisabilityDescription" ],
                 "summary": "Создать новую инвалидность определенного пациента.",
-                
+                "operationId": "CreateDisabilityDescription",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1210,7 +1237,7 @@
             "put": {
                 "tags": [ "DisabilityDescription" ],
                 "summary": "Редактировать инвалидность определенного пациента.",
-                
+                "operationId": "EditDisabilityDescriptionByPatientId",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1251,7 +1278,7 @@
             "delete": {
                 "tags": [ "DisabilityDescription" ],
                 "summary": "Пометить описание инвалидности пациента удаленным",
-                
+                "operationId": "DisabilityDescriptionSoftDelete",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1288,7 +1315,7 @@
             "get": {
                 "tags": [ "MediacalAnamnesis" ],
                 "summary": "Получить список всех медицинских анамнезов.",
-                
+                "operationId": "GetMediacalAnamnesisList",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -1310,7 +1337,7 @@
             "post": {
                 "tags": [ "MediacalAnamnesis" ],
                 "summary": "Создать новый медицинский анамнез.",
-                
+                "operationId": "CreateMediacalAnamnesis",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1342,6 +1369,7 @@
             "get": {
                 "tags": [ "MediacalAnamnesis" ],
                 "summary": "Получить медицинский анамнез по идентификатору.",
+                "operationId": "GetMediacalAnamnesisById",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1372,6 +1400,7 @@
             "put": {
                 "tags": [ "MediacalAnamnesis" ],
                 "summary": "Редактировать медицинский анамнез.",
+                "operationId": "EditMediacalAnamnesis",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1414,7 +1443,7 @@
             "delete": {
                 "tags": [ "MediacalAnamnesis" ],
                 "summary": "Пометить медицинский анамнез удаленным",
-                
+                "operationId": "MediacalAnamnesisSoftDelete",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1451,7 +1480,7 @@
             "get": {
                 "tags": [ "MedicalExamination" ],
                 "summary": "Получить список всех медицинских обследований.",
-                
+                "operationId": "GetMedicalExaminationsList",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -1473,6 +1502,7 @@
             "post": {
                 "tags": [ "MedicalExamination" ],
                 "summary": "Создать медицинское обследование.",
+                "operationId": "CreateMedicalExamination",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1505,6 +1535,7 @@
             "get": {
                 "tags": [ "MedicalExamination" ],
                 "summary": "Получить медицинское обследование по идентификатору.",
+                "operationId": "GetMedicalExaminationById",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1535,6 +1566,7 @@
             "put": {
                 "tags": [ "MedicalExamination" ],
                 "summary": "Редактировать медицинское обследование.",
+                "operationId": "EditMedicalExamination",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1577,7 +1609,7 @@
             "delete": {
                 "tags": [ "MedicalExamination" ],
                 "summary": "Пометить медицинское обследование удаленным.",
-                
+                "operationId": "MedicalExaminationSoftDelete",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1614,7 +1646,7 @@
             "get": {
                 "tags": [ "MedicalHistory" ],
                 "summary": "Получить все истории болезни.",
-                
+                "operationId": "GetMedicalHistoryList",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -1636,7 +1668,7 @@
             "post": {
                 "tags": [ "MedicalHistory" ],
                 "summary": "Создать новую историю болезни.",
-                
+                "operationId": "CreateMedicalHistory",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1668,7 +1700,7 @@
             "get": {
                 "tags": [ "MedicalHistory" ],
                 "summary": "Получить  историю болезни по индетификатору.",
-                
+                "operationId": "GetMedicalHistoryById",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1699,7 +1731,7 @@
             "put": {
                 "tags": [ "MedicalHistory" ],
                 "summary": "Редактировать историю болезни.",
-                
+                "operationId": "EditMedicalHistory",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1741,6 +1773,7 @@
             "delete": {
                 "tags": [ "MedicalHistory" ],
                 "summary": "Пометить историю болезни удаленным",
+                "operationId": "MedicalHistorySoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1778,6 +1811,7 @@
             "get": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Получить список заметок по идентификатору истории болезни",
+                "operationId": "GetMedicalHistoryNotesListByMedicalHistoryId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -1809,6 +1843,7 @@
             "get": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Получить заметку по идентификатору",
+                "operationId": "GetMedicalHistoryNoteById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1839,6 +1874,7 @@
             "put": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Редактировать заметку истории болезни",
+                "operationId": "EditMedicalHistoryNote",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1881,6 +1917,7 @@
             "post": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Привязать заметку к истории болезни",
+                "operationId": "LinkMedicalHistoryNoteToMedicalHistory",
                 "description": "Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -1923,6 +1960,7 @@
             "delete": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Поменить заметку удаленной",
+                "operationId": "MedicalHistoryNoteSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -1960,6 +1998,7 @@
             "post": {
                 "tags": [ "MedicalHistoryNotes" ],
                 "summary": "Создать новую заметку",
+                "operationId": "CreateMedicalHistoryNote",
                 "description": "Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
@@ -1996,6 +2035,7 @@
             "get": {
                 "tags": [ "MedicalTestResults" ],
                 "summary": "Получить список результатов анализов по идентификатору обследования",
+                "operationId": "GetMedicalTestResultsByMedicalExaminationId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2027,6 +2067,7 @@
             "get": {
                 "tags": [ "MedicalTestResults" ],
                 "summary": "Получить список результатов анализов по идентификатору пациента",
+                "operationId": "GetMedicalTestResultsListByPatientId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2058,6 +2099,7 @@
             "get": {
                 "tags": [ "MedicalTestResults" ],
                 "summary": "Получить результат анализа по идентификатору",
+                "operationId": "GetMedicalTestResultById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2088,6 +2130,7 @@
             "post": {
                 "tags": [ "MedicalTestResults" ],
                 "summary": "Привязать результат анализа к обследованию",
+                "operationId": "LinkMedicalTestResultToMedicalExamination",
                 "description": "Для привязки результата анализа к обследрванию указывается внешний ключ в поле MedicalExaminationId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2130,7 +2173,7 @@
             "delete": {
                 "tags": [ "MedicalTestResults" ],
                 "summary": "Поменить результат анализа удаленным",
-                
+                "operationId": "MedicalTestResultSoftDelete",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2167,7 +2210,7 @@
             "get": {
                 "tags": [ "Patients" ],
                 "summary": "Получить список пациентов",
-                
+                "operationId": "GetPatientsList",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [],
@@ -2189,6 +2232,7 @@
             "post": {
                 "tags": [ "Patients" ],
                 "summary": "Создать нового пациента",
+                "operationId": "CreatePatient",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2221,6 +2265,7 @@
             "get": {
                 "tags": [ "Patients" ],
                 "summary": "Получить пациента по индетификатору",
+                "operationId": "GetPatientById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2252,6 +2297,7 @@
             "put": {
                 "tags": [ "Patients" ],
                 "summary": "Редактировать данные пациента",
+                "operationId": "EditPatient",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2294,6 +2340,7 @@
             "delete": {
                 "tags": [ "Patients" ],
                 "summary": "Пометить пациента удаленным",
+                "operationId": "PatientSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2331,6 +2378,7 @@
             "get": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Получить список медосмотров по идентификатору истории болезни",
+                "operationId": "GetPhysicalExaminationsListByMedicalHistoryId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2362,6 +2410,7 @@
             "get": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Получить медосмотр по идентификатору",
+                "operationId": "GetPhysicalExaminationById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2392,6 +2441,7 @@
             "put": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Редактировать медосмотр",
+                "operationId": "EditPhysicalExamination",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2434,6 +2484,7 @@
             "post": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Привязать медосмотр к истории болезни",
+                "operationId": "LinkPhysicalExaminationToMedicalHistory",
                 "description": "Для привязки медосмотра к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2476,6 +2527,7 @@
             "delete": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Поменить медосмотр удаленным",
+                "operationId": "PhysicalExaminationSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2513,6 +2565,7 @@
             "post": {
                 "tags": [ "PhysicalExaminations" ],
                 "summary": "Создать новый медосмотр",
+                "operationId": "CreatePhysicalExamination",
                 "description": "Для привязки медосмотр к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
@@ -2549,6 +2602,7 @@
             "get": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Получить список физиологических показаний по идентификатору истории болезни",
+                "operationId": "GetPhysiologicalIndicationListByMedicalHistoryId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2580,6 +2634,7 @@
             "get": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Получить физиологические показания по идентификатору",
+                "operationId": "GetPhysiologicalIndicationById",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2610,6 +2665,7 @@
             "put": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Редактировать физиологические показания",
+                "operationId": "EditPhysiologicalIndication",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2652,6 +2708,7 @@
             "post": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Привязать физиологические показания к истории болезни",
+                "operationId": "LinkPhysiologicalIndicationToMedicalHistory",
                 "description": "Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2694,6 +2751,7 @@
             "delete": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Поменить физиологические показания удаленными",
+                "operationId": "PhysiologicalIndicationSoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2731,6 +2789,7 @@
             "post": {
                 "tags": [ "PhysiologicalIndications" ],
                 "summary": "Создать новые физиологические показания",
+                "operationId": "CreatePhysiologicalIndication",
                 "description": "Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
@@ -2767,6 +2826,7 @@
             "get": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Получить список трудовых анамнезов по идентификатору пациента",
+                "operationId": "GetWorkHistoriesByPatientId",
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2798,7 +2858,7 @@
             "get": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Получить трудовой анамнез по идентификатору",
-                
+                "operationId": "GetWorkHistoryById",                
                 "consumes": [],
                 "produces": [ "application/json" ],
                 "parameters": [
@@ -2828,6 +2888,7 @@
             "put": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Редактировать трудовой анамнез",
+                "operationId": "EditWorkHistory",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2870,6 +2931,7 @@
             "post": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Привязать трудовой анамнез к пациенту",
+                "operationId": "LinkWorkHistoryToPatient",
                 "description": "Для привязки трудового анамнеза к пациенту указывается внешний ключ в поле PatientId",
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
@@ -2912,6 +2974,7 @@
             "delete": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Поменить трудовой удаленными",
+                "operationId": "WorkHistorySoftDelete",
                 
                 "consumes": [],
                 "produces": [ "application/json" ],
@@ -2949,6 +3012,7 @@
             "post": {
                 "tags": [ "WorkHistories" ],
                 "summary": "Создать новый трудовой анамнез",
+                "operationId": "CreateWorkHistory",
                 "description": "Для привязки трудового анамнеза к пациента указывается внешний ключ в поле PatientId",
                 
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
