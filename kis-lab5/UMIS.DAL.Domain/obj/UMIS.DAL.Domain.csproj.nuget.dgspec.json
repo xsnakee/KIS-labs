@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain/UMIS.DAL.Domain.csproj": {}
+  },
+  "projects": {
+    "/Users/romangladcenko/UMSI_Api/Common/Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/romangladcenko/UMSI_Api/Common/Common.csproj",
+        "projectName": "Common",
+        "projectPath": "/Users/romangladcenko/UMSI_Api/Common/Common.csproj",
+        "packagesPath": "/Users/romangladcenko/.nuget/packages/",
+        "outputPath": "/Users/romangladcenko/UMSI_Api/Common/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/romangladcenko/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/UMIS.DAL.Domain.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/UMIS.DAL.Domain.Contracts.csproj",
+        "projectName": "UMIS.DAL.Domain.Contracts",
+        "projectPath": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/UMIS.DAL.Domain.Contracts.csproj",
+        "packagesPath": "/Users/romangladcenko/.nuget/packages/",
+        "outputPath": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/romangladcenko/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "/Users/romangladcenko/UMSI_Api/Common/Common.csproj": {
+                "projectPath": "/Users/romangladcenko/UMSI_Api/Common/Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain/UMIS.DAL.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain/UMIS.DAL.Domain.csproj",
+        "projectName": "UMIS.DAL.Domain",
+        "projectPath": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain/UMIS.DAL.Domain.csproj",
+        "packagesPath": "/Users/romangladcenko/.nuget/packages/",
+        "outputPath": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/romangladcenko/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "/Users/romangladcenko/UMSI_Api/Common/Common.csproj": {
+                "projectPath": "/Users/romangladcenko/UMSI_Api/Common/Common.csproj"
+              },
+              "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/UMIS.DAL.Domain.Contracts.csproj": {
+                "projectPath": "/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/UMIS.DAL.Domain.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/BllUnitTests.deps.json
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/BllUnitTests.runtimeconfig.json
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/BllUnitTests.runtimeconfig.dev.json
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/BllUnitTests.dll
+/Users/romangladcenko/UMSI_Api/BllUnitTests/bin/Debug/netcoreapp2.1/BllUnitTests.pdb
+/Users/romangladcenko/UMSI_Api/BllUnitTests/obj/Debug/netcoreapp2.1/BllUnitTests.csprojAssemblyReference.cache
+/Users/romangladcenko/UMSI_Api/BllUnitTests/obj/Debug/netcoreapp2.1/BllUnitTests.AssemblyInfoInputs.cache
+/Users/romangladcenko/UMSI_Api/BllUnitTests/obj/Debug/netcoreapp2.1/BllUnitTests.AssemblyInfo.cs
+/Users/romangladcenko/UMSI_Api/BllUnitTests/obj/Debug/netcoreapp2.1/BllUnitTests.dll
+/Users/romangladcenko/UMSI_Api/BllUnitTests/obj/Debug/netcoreapp2.1/BllUnitTests.pdb

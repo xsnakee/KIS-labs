@@ -1,0 +1,14 @@
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Configs/appsettings.json
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Common.deps.json
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Common.dll
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Common.pdb
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Common.xml
+/Users/romangladcenko/UMSI_Api/Common/obj/Debug/netcoreapp2.1/Common.AssemblyInfoInputs.cache
+/Users/romangladcenko/UMSI_Api/Common/obj/Debug/netcoreapp2.1/Common.AssemblyInfo.cs
+/Users/romangladcenko/UMSI_Api/Common/obj/Debug/netcoreapp2.1/Common.dll
+/Users/romangladcenko/UMSI_Api/Common/obj/Debug/netcoreapp2.1/Common.pdb
+/Users/romangladcenko/UMSI_Api/Common/obj/Debug/netcoreapp2.1/Common.csprojAssemblyReference.cache
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Configs/appsettings.Demo.json
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Configs/appsettings.Development.json
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Configs/appsettings.Production.json
+/Users/romangladcenko/UMSI_Api/Common/bin/Debug/netcoreapp2.1/Configs/appsettings.RemoteDev.json

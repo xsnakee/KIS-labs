@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="adsd\**" />
+    <Compile Remove="Migrations1\**" />
+    <EmbeddedResource Remove="adsd\**" />
+    <EmbeddedResource Remove="Migrations1\**" />
+    <None Remove="adsd\**" />
+    <None Remove="Migrations1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191024191947_Init_db.cs" />
+    <Compile Remove="Migrations\20191024204836_Init_db.cs" />
+    <Compile Remove="Migrations\20191026134637_update_identity_users_and_roles_entities.cs" />
+    <Compile Remove="Migrations\20191026220512_AddSystemUsersAndRolesSeed.cs" />
+    <Compile Remove="Migrations\20191027080842_RemoveRoleNewId.cs" />
+    <Compile Remove="Migrations\20191027080915_RemoveRoleNewId.cs" />
+    <Compile Remove="Migrations\20191027124332_AddUserPermissions.cs" />
+    <Compile Remove="Migrations\20191027131349_AddUserToRoleRelEntity.cs" />
+    <Compile Remove="Migrations\20191027150345_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027150555_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027150642_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027163009_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027163148_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027174233_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027174510_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191027183927_InitDatabase.cs" />
+    <Compile Remove="Migrations\20191028072205_RemoveRolesFromUserModel.cs" />
+    <Compile Remove="Migrations\20191028074925_ChangeWorkgroupToUserRelation.cs" />
+    <Compile Remove="Migrations\20191028075140_ChangeWorkgroupToUserRelation.cs" />
+    <Compile Remove="Migrations\20191028082102_ChangeWorkgroupToUserRelation.cs" />
+    <Compile Remove="Migrations\20191028083124_ChangeWorkgroupToUserRelation.cs" />
+    <Compile Remove="Migrations\20191028084531_ChangeWorkgroupToUserRelation.cs" />
+    <Compile Remove="Migrations\20191028134401_UpdatedCommonCustomizedAndPermissionEntities.cs" />
+    <Compile Remove="Migrations\20191028172537_ChangePermissionToWorkgroupRelation.cs" />
+    <Compile Remove="Migrations\20191028190749_AddUserToWorkgroupRelationEntityToContext.cs" />
+    <Compile Remove="Migrations\20191028192849_RenameAuthEntityRelationProperties.cs" />
+    <Compile Remove="Migrations\20191109005705_RemovedComplexForeignKeyFromRoleEntity.cs" />
+    <Compile Remove="Migrations\20191109010108_temp.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\UMIS.DAL.Domain.Models\UMIS.DAL.Domain.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.identity.entityframeworkcore\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Stores">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.identity.stores\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

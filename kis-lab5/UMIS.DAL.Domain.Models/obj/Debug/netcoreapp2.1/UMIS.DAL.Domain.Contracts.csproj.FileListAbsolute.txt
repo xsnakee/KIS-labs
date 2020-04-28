@@ -1,0 +1,17 @@
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Configs/appsettings.json
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.deps.json
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.dll
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.pdb
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Common.dll
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Common.pdb
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Common.xml
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.csprojAssemblyReference.cache
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.AssemblyInfoInputs.cache
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.AssemblyInfo.cs
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.csproj.CopyComplete
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.dll
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/obj/Debug/netcoreapp2.1/UMIS.DAL.Domain.Contracts.pdb
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Configs/appsettings.Demo.json
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Configs/appsettings.Development.json
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Configs/appsettings.Production.json
+/Users/romangladcenko/UMSI_Api/UMIS.DAL.Domain.Models/bin/Debug/netcoreapp2.1/Configs/appsettings.RemoteDev.json

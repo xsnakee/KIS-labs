@@ -1,0 +1,25 @@
+$env:ASPNETCORE_ENVIRONMENT='Development'
+$env:ASPNETCORE_ENVIRONMENT='Demo'
+$env:ASPNETCORE_ENVIRONMENT='RemoteDev'
+$env:ASPNETCORE_ENVIRONMENT='Production'
+
+#add-migration
+add-migration name -v -project UMIS.DAL.Domain -startup UMIS.Api
+add-migration name -v -project UMIS.DAL.DomainAuth -startup UMIS.Api
+
+#update-database
+update-database -v -project UMIS.DAL.Domain -startup UMIS.Api
+update-database -v -project UMIS.DAL.DomainAuth -startup UMIS.Api
+
+#remove-migration
+remove-migration -v -project UMIS.DAL.Domain -startup UMIS.Api
+remove-migration -v -project UMIS.DAL.DomainAuth -startup UMIS.Api
+
+
+#revert migrations
+update-database -v -project UMIS.DAL.Domain -startup UMIS.Api -Migration name
+update-database -v -project UMIS.DAL.DomainAuth -startup UMIS.Api -Migration name
+
+#reset ALL migrations
+update-database -v -project UMIS.DAL.Domain -startup UMIS.Api -Migration 0
+update-database -v -project UMIS.DAL.DomainAuth -startup UMIS.Api -Migration 0

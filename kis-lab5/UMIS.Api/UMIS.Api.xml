@@ -1,0 +1,1430 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMIS.Api</name>
+    </assembly>
+    <members>
+        <member name="T:UMIS.Api.Controllers.AllergyAnamnesisController">
+            <summary>
+            Контроллер для работы с аллергоанамнезом
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.AllergyAnamnesisController.AllergyId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.Get">
+            <summary>
+            Получить список всех аллергоанамнезов.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех аллергоанамнезов.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.GetById(System.Int32)">
+            <summary>
+            Получить  аллергоанамнез по индетификатору.
+            </summary>
+            <returns>Транспортная модель аллергноанамнеза.</returns>
+            <param name="id">Идентификатор алергнооанамнеза.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.GetByIdPatient(System.Int32)">
+            <summary>
+            Получить все аллергоанамнезы по индетификатору пациента.
+            </summary>
+            <returns>Транспортная модель аллергоанамнеза.</returns>
+            <param name="id">Идентификатор пациента.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.Delete(System.Int32)">
+            <summary>
+            Пометить аллергоанамнез удаленным
+            </summary>
+            <param name="id">Идентификатор аллергоанамнеза</param>
+            <response code="200">Успешное удаление аллергноанамнеза</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Аллергоанамнез с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.AllergyAnamnesisDto)">
+            <summary>
+            Редактировать аллергоанамнез
+            </summary>
+            <param name="id">Идентификатор аллергоанамнеза</param>
+            <param name="allergy">Аллергноанамнез</param>
+            <response code="200">Успешное редактирование аллергоанамнеза</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Аллергоанамнез с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AllergyAnamnesisController.Post(UMIS.BLL.Contracts.Models.Common.AllergyAnamnesisDto)">
+            <summary>
+            Создать новый аллергоанамнез
+            </summary>
+            <param name="allergy">Аллергоанамнез</param>
+            <returns>Идентификатор созданного аллергоанамнеза</returns>
+            <response code="201">Успешное создание справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.AssignmentController">
+            <summary>
+            Контроллер для работы с назначениями
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.AssignmentController.AssignmentId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.Get">
+            <summary>
+            Получить список всех назначений.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех назначений.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.GetById(System.Int32)">
+            <summary>
+            Получить  назначение по индетификатору.
+            </summary>
+            <returns>Транспортная модель назначения.</returns>
+            <param name="id">Идентификатор назначения.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.GetByMedicalHistoryId(System.Int32)">
+            <summary>
+            Получить все назначения по индетификатору истории болезни.
+            </summary>
+            <returns>Транспортная модель назначения.</returns>
+            <param name="id">Идентификатор истории болезни.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.Delete(System.Int32)">
+            <summary>
+            Пометить назначение удаленным.
+            </summary>
+            <param name="id">Идентификатор назначения.</param>
+            <response code="200">Успешное удаление назначения.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Назначение с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.AssignmentDto)">
+            <summary>
+            Редактировать назначение.
+            </summary>
+            <param name="id">Идентификатор назначения.</param>
+            <param name="assignment">Назначение.</param>
+            <response code="200">Успешное редактирование назначение.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Назначение с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AssignmentController.Post(UMIS.BLL.Contracts.Models.Common.AssignmentDto)">
+            <summary>
+            Создать новое назначение
+            </summary>
+            <param name="allergy">Назначение</param>
+            <returns>Идентификатор созданного назначение</returns>
+            <response code="201">Успешное создание справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.AuthController">
+            <summary>
+            Контроллер для аутентификации и авторизации на основе JWT
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AuthController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IAuthManager,TokenAuthentication.ITokenService)">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AuthController.LoginAction(UMIS.BLL.Contracts.Models.Auth.UserLoginDto)">
+            <summary>
+            Выполнить вход в систему
+            </summary>
+            <param name="loginDto">Модель логина пользователя</param>
+            <response code="200">Токен для авторизации</response>
+            <response code="401">Ошибка логина/пароля</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>JWT - токен</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.AuthController.UserAuthInfo">
+            <summary>
+            Метод получения данных пользователя
+            </summary>
+            <returns>Учетные данные пользователя</returns>
+            <response code="200">Данные пользователя</response>
+            <response code="401">Пользователь не авторизован</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.Base.BaseApiController">
+            <summary>
+            Базовый контроллер
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.Base.BaseApiController.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.Base.BaseApiController.ExecuteAction(System.Action)">
+            <summary>
+            Выполнить метод без возвращаемого результата
+            </summary>
+            <param name="action">Функция/лямбда выражение</param>
+        </member>
+        <member name="M:UMIS.Api.Controllers.Base.BaseApiController.ExecuteActionAsync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Выполнить метод ассинхронно, без возвращаемого результата
+            </summary>
+            <param name="func">Ассинхронная функция/лямбда выражение</param>
+        </member>
+        <member name="M:UMIS.Api.Controllers.Base.BaseApiController.ExecuteActionWithResult``1(System.Func{``0})">
+            <summary>
+            Выполнить метод и вернуть результат
+            </summary>
+            <param name="func">Функция/лямбда выражение</param>
+            <returns>Результат в обертке JSON</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.Base.BaseApiController.ExecuteActionWithResultAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Выполнить метод ассинхронно и вернуть результат
+            </summary>
+            <param name="func">Ассинхронная функция/лямбда выражение</param>
+            <returns>Результат в обертке JSON</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.CatalogFieldsController">
+            <summary>
+            Контроллер для работы с полями справочников
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.CatalogFieldsController.CatalogFieldId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.Get">
+            <summary>
+            Получить список полей справочников
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок полей справочников</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.GetById(System.Int32)">
+            <summary>
+            Получить поле справочника по идентификатору
+            </summary>
+            <returns>Транспортная модель поля справочника</returns>
+            <param name="id">Идентификатор поля справочника</param>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.Post(UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto)">
+            <summary>
+            Создать новое поле для справочника
+            </summary>
+            <returns>Идентификатор созанного поля</returns>
+            <response code="201">Успешное создание поля справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найден справочник</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto)">
+            <summary>
+            Привязать поле к справочнику
+            </summary>
+            <param name="id">Идентификатор справочника</param>
+            <param name="catalogField">Поле справочника</param>
+            <returns>Идентификатор созанной связи</returns>
+            <response code="201">Успешная привязка поля к справочнику</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найден справочник</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки поля к справочнику указывается внешний ключ в поле CatalogToCatalogFieldId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto)">
+            <summary>
+            Редактировать поле справочника
+            </summary>
+            <param name="id">Идентификатор поля справочника</param>
+            <param name="catalogField">Поле справочника</param>
+            <response code="200">Успешное редактирование поля справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Поле справочника с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogFieldsController.Delete(System.Int32)">
+            <summary>
+            Поменить поле справочника удаленным
+            </summary>
+            <param name="id">Идентификатор поля справочника</param>
+            <response code="200">Успешное удаление поля справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Поле справочника с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.CatalogsController">
+            <summary>
+            Контроллер для работы со справочниками
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.CatalogsController.CatalogId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogsController.Get">
+            <summary>
+            Получить список справочников
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок справочников</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogsController.GetById(System.Int32)">
+            <summary>
+            Получить справочник по идентификатору
+            </summary>
+            <param name="id">Идентификатор справочника</param>
+            <returns>Транспортная модель справочника</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogsController.Post(UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto)">
+            <summary>
+            Создать новый справочник
+            </summary>
+            <param name="catalog">Справочник</param>
+            <returns>Идентификатор созанного справочника</returns>
+            <response code="201">Успешное создание справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogsController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto)">
+            <summary>
+            Редактировать справочник
+            </summary>
+            <param name="id">Идентификатор справочника</param>
+            <param name="catalog">Справочник</param>
+            <response code="200">Успешное редактирование справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Справочник с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogsController.Delete(System.Int32)">
+            <summary>
+            Пометить справочник удаленным
+            </summary>
+            <param name="id">Идентификатор справочника</param>
+            <response code="200">Успешное удаление справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Справочник с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.CatalogTypesController">
+            <summary>
+            Контроллер для работы с типами типов справочников
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.CatalogTypesController.CatalogTypeId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogTypesController.Get">
+            <summary>
+            Получить список типов справочников
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок типов справочников</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogTypesController.GetById(System.Int32)">
+            <summary>
+            Получить типа справочника по идентификатору
+            </summary>
+            <param name="id">Идентификатор типа справочника</param>
+            <returns>Транспортная модель типа справочника</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogTypesController.Post(UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto)">
+            <summary>
+            Создать новый тип справочника
+            </summary>
+            <param name="catalogType">Тип справочника</param>
+            <returns>Идентификатор созанного типа справочника</returns>
+            <response code="201">Успешное создание типа справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogTypesController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto)">
+            <summary>
+            Редактировать тип справочника
+            </summary>
+            <param name="id">Идентификатор типа справочника</param>
+            <param name="catalogType">Тип справочника</param>
+            <response code="200">Успешное редактирование типа справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Справочник с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.CatalogTypesController.Delete(System.Int32)">
+            <summary>
+            Пометить тип справочника удаленным
+            </summary>
+            <param name="id">Идентификатор типа справочника</param>
+            <response code="200">Успешное удаление типа справочника</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Справочник с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.DiagnosisController">
+            <summary>
+            Контроллер для работы c диагнозом
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.DiagnosisController.DiagnosisId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DiagnosisController.Get">
+            <summary>
+            Получить список всех диагназов.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех диагнозов.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DiagnosisController.GetById(System.Int32)">
+            <summary>
+            Получить  диагноз по индетификатору.
+            </summary>
+            <returns>Транспортная модель диагноза.</returns>
+            <param name="id">Идентификатор диагноза.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DiagnosisController.Delete(System.Int32)">
+            <summary>
+            Пометить диагноз.
+            </summary>
+            <param name="id">Идентификатор диагноза.</param>
+            <response code="200">Успешное удаление диагноза.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Диагноз с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DiagnosisController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.DiagnosisDto)">
+            <summary>
+            Редактировать диагноз.
+            </summary>
+            <param name="id">Идентификатор диагноза.</param>
+            <param name="assignment">Диагноз.</param>
+            <response code="200">Успешное редактирование диагноз.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Диагноз с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DiagnosisController.Post(UMIS.BLL.Contracts.Models.Common.DiagnosisDto)">
+            <summary>
+            Создать новый диагноз
+            </summary>
+            <param name="allergy">Дигноз.</param>
+            <returns>Идентификатор созданного диагноза.</returns>
+            <response code="201">Успешное создание диагноза.</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.DisabilityDescriptionController">
+            <summary>
+            Контроллер для работы с инвалидностью
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.DisabilityDescriptionController.DisabilityDescriptionId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DisabilityDescriptionController.Get">
+            <summary>
+            Получить список всех пациентов с группой инвалидности.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех пациенотов с группой инвалидности.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DisabilityDescriptionController.Delete(System.Int32)">
+            <summary>
+            Пометить описание инвалидности пациента удаленным
+            </summary>
+            <param name="id">Идентификатор инвалидности пациента.</param>
+            <response code="200">Успешное удаление инвалидности пациента.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Инвалидность пациента с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DisabilityDescriptionController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.DisabilityDescriptionDto)">
+            <summary>
+            Редактировать инвалидность определенного пациента.
+            </summary>
+            <param name="id">Идентификатор инвалидности определенного пациента.</param>
+            <param name="DisabilityDescriptionDto">инвалидность определенного пациента.</param>
+            <response code="200">Успешное редактирование инвалидности определенногоо пациента.</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Инвалидность определенного пациента с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.DisabilityDescriptionController.Post(UMIS.BLL.Contracts.Models.Common.MediacalAnamnesisDto)">
+            <summary>
+            Создать новую инвалидность определенного пациента.
+            </summary>
+            <param name="disabilityDescription">Инвалидность определенного пациента.</param>
+            <returns>Идентификатор созданной инвалидности определенного пациента.</returns>
+            <response code="201">Успешное создание инвалидности определенного опациента.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.MediacalAnamnesisController">
+            <summary>
+            Контроллер для работы с медицинским анамнезом
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.MediacalAnamnesisController.MedicalAnamnesistionId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MediacalAnamnesisController.Get">
+            <summary>
+            Получить список всех медицинских анамнезов.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех медицинских анамнезов.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MediacalAnamnesisController.GetByMedicalAnamnesId(System.Int32)">
+            <summary>
+            Получить медицинский анамнез по идентификатору.
+            </summary>
+            <returns>Транспортная модель медицинского обследования.</returns>
+            <param name="id">Идентификатор медицинского обследования.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MediacalAnamnesisController.Delete(System.Int32)">
+            <summary>
+            Пометить медицинский анамнез удаленным
+            </summary>
+            <param name="id">Идентификатор медицинского анамнеза.</param>
+            <response code="200">Успешное удаление аллергноанамнеза.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Медицинский анамнез с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MediacalAnamnesisController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.MediacalAnamnesisDto)">
+            <summary>
+            Редактировать медицинский анамнез.
+            </summary>
+            <param name="id">Идентификатор медицинского анамнеза.</param>
+            <param name="mediacalAnamnesis">Медицинский анамнез.</param>
+            <response code="200">Успешное редактирование медицинского анамнеза.</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Медицинский анамнез с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MediacalAnamnesisController.Post(UMIS.BLL.Contracts.Models.Common.MediacalAnamnesisDto)">
+            <summary>
+            Создать новый медицинский анамнез.
+            </summary>
+            <param name="mediacalAnamnesis">Медицинский анамнез.</param>
+            <returns>Идентификатор созданного медицинского анамнеза.</returns>
+            <response code="201">Успешное создание справочника.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.MedicalExaminationController">
+            <summary>
+            Контроллер для работы с медицинским обследованием
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.MedicalExaminationController.MedicalExaminationId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalExaminationController.Get">
+            <summary>
+            Получить список всех медицинских обследований.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех медицинских обследований.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalExaminationController.GetByMedicalExaminationId(System.Int32)">
+            <summary>
+            Получить медицинское обследование по идентификатору.
+            </summary>
+            <returns>Транспортная модель медицинского обследования.</returns>
+            <param name="id">Идентификатор медицинского обследования.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalExaminationController.Delete(System.Int32)">
+            <summary>
+            Пометить медицинское обследование удаленным.
+            </summary>
+            <param name="id">Идентификатор медицинского обследования.</param>
+            <response code="200">Успешное удаление медицинского обследования.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Медицинское обследование с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalExaminationController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.MedicalTestResultDto)">
+            <summary>
+            Редактировать медицинское обследование.
+            </summary>
+            <param name="id">Идентификатор медицинское обследование.</param>
+            <param name="medicalTestResult">Медицинское обследование.</param>
+            <response code="200">Успешное редактирование назначение.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">Назначение с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalExaminationController.Post(UMIS.BLL.Contracts.Models.Common.MedicalTestResultDto)">
+            <summary>
+            Создать медицинское обследование.
+            </summary>
+            <param name="medicalTestResult">Медицинское обследование.</param>
+            <returns>Идентификатор созданного медицинскоего обследования.</returns>
+            <response code="201">Успешное создание медицинского обследования.</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.MedicalHistoryController">
+            <summary>
+            Контроллер для работы с историями болезней
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Controllers.MedicalHistoryController.MedicalHistoryId">
+            <summary>
+            Счетчик идентификаторов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.Common.IMedicalHistoryManager)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.GetMedicalHistoriesByFilteredAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить все истории болезни.
+            </summary>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+            <returns>Cписок всех историй болезни.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.GetById(System.Int32)">
+            <summary>
+            Получить  историю болезни по индетификатору.
+            </summary>
+            <returns>Транспортная модель истории болезни.</returns>
+            <param name="id">Идентификатор истории болезни.</param>
+            <response code="200">Успешное выполнение запроса данных.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.Delete(System.Int32)">
+            <summary>
+            Пометить историю болезни удаленным
+            </summary>
+            <param name="id">Идентификатор истории болезни</param>
+            <response code="200">Успешное удаление истории болезнт</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">История болезни с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto)">
+            <summary>
+            Редактировать историю болезни.
+            </summary>
+            <param name="id">Идентификатор истории болезни.</param>
+            <param name="medicalHistory">История болезни.</param>
+            <response code="200">Успешное редактирование истории болезни.</response>
+            <response code="401">Ошибка авторизации.</response>
+            <response code="404">История болезни с заданным идентификатором не найден.</response>
+            <response code="500">Возникло исключение на сервере.</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryController.CreateMedicalHistoryAsync(UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto)">
+            <summary>
+            Создать новую историю болезни.
+            </summary>
+            <param name="medicalHistory">История болезни.</param>
+            <returns>Идентификатор созданной истории болезни.</returns>
+            <response code="201">Успешное создание истории болезни.</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.MedicalHistoryNotesController">
+            <summary>
+            Контроллер для работы с заметками истории болезни
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.GetByMedicalHistoryId(System.Int32)">
+            <summary>
+            Получить список заметок по идентификатору истории болезни
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок заметок истории болезни</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.GetById(System.Int32)">
+            <summary>
+            Получить заметку по идентификатору
+            </summary>
+            <returns>Транспортная модель заметки</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.Post(UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto)">
+            <summary>
+            Создать новую заметку
+            </summary>
+            <returns>Идентификатор созанной заметки</returns>
+            <response code="201">Успешное создание заметки</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto)">
+            <summary>
+            Привязать заметку к истории болезни
+            </summary>
+            <param name="id">Идентификатор истории болезни</param>
+            <param name="note">Заметка</param>
+            <returns>Идентификатор созанной связи</returns>
+            <response code="201">Успешная привязка заметки к истории болезни</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки заметки к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto)">
+            <summary>
+            Редактировать заметку истории болезни
+            </summary>
+            <param name="id">Идентификатор заметки</param>
+            <param name="note">Заметка</param>
+            <response code="200">Успешное редактирование заметки</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Заметки с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalHistoryNotesController.Delete(System.Int32)">
+            <summary>
+            Поменить заметку удаленной
+            </summary>
+            <param name="id">Идентификатор заметки</param>
+            <response code="200">Успешное удаление заметки</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Заметки с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.MedicalTestResultsController">
+            <summary>
+            Контроллер для работы с результатами анализов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalTestResultsController.GetByMedicalExaminationId(System.Int32)">
+            <summary>
+            Получить список результатов анализов по идентификатору обследования
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок результатов анализов</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalTestResultsController.GetByPatientId(System.Int32)">
+            <summary>
+            Получить список результатов анализов по идентификатору пациента
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок результатов анализов</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalTestResultsController.GetById(System.Int32)">
+            <summary>
+            Получить результат анализа по идентификатору
+            </summary>
+            <returns>Транспортная модель результата анализа</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalTestResultsController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.MedicalTestResultDto)">
+            <summary>
+            Привязать результат анализа к обследованию
+            </summary>
+            <param name="id">Идентификатор обследования</param>
+            <param name="medicalTestResult">Результат анализа</param>
+            <returns>Идентификатор созданной связи</returns>
+            <response code="201">Успешная привязка результата анализа к обследованию</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдено обследование</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки результата анализа к обследрванию указывается внешний ключ в поле MedicalExaminationId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.MedicalTestResultsController.Delete(System.Int32)">
+            <summary>
+            Поменить результат анализа удаленным
+            </summary>
+            <param name="id">Идентификатор результата анализа</param>
+            <response code="200">Успешное удаление результата анализа</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Результата анализа с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.PatientsController">
+            <summary>
+            Контроллер для работы с пациентами
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.GetPatientsByFilterAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить список пациентов
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок пациентов</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.GetPatientByIdAsync(System.Int32)">
+            <summary>
+            Получить пациента по индетификатору
+            </summary>
+            <returns>Транспортная модель пациента</returns>
+            <param name="id">Идентификатор пациента</param>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.Delete(System.Int32)">
+            <summary>
+            Пометить пациента удаленным
+            </summary>
+            <param name="id">Идентификатор пациента</param>
+            <response code="200">Успешное удаление пациента</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Пациент с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.EditPatientAsync(UMIS.BLL.Contracts.Models.Common.PatientDto)">
+            <summary>
+            Редактировать данные пациента
+            </summary>
+            <param name="id">Идентификатор пациента</param>
+            <param name="patient">Пациент</param>
+            <response code="200">Успешное редактирование данных пациента</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Пациента с заданным идентификатором не найден</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PatientsController.RegisterPatientAsync(UMIS.BLL.Contracts.Models.Common.PatientDto)">
+            <summary>
+            Создать нового пациента
+            </summary>
+            <param name="patient">Пациент</param>
+            <returns>Идентификатор созданного пациента</returns>
+            <response code="201">Успешное создание пациента</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.PermissionsController">
+            <summary>
+            Контроллер для работы с пермиссиями
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PermissionsController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager)">
+            <summary>
+            сtor
+            </summary>
+            <param name="premissionManager"></param>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PermissionsController.GetPermissionsForCurrentUser">
+            <summary>
+            Получить список пермиссий доступных текущему пользователю для назначения
+            </summary>
+            Необходимые пермиссии:
+            23 - Просмотр пермиссий
+            <returns>Спиок пермиссий</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PermissionsController.GetPermissionsByWorkgroupRoleId(System.Int32)">
+            <summary>
+            Получить список пермиссий по идентификатору роли в рабочей группы
+            </summary>
+            Необходимые пермиссии:
+            26 - Назначение пермиссий ролям и рабочим группам
+            <param name="workgroupRoleId">Идентификатор роли в рабочей группы</param>
+            <returns>Спиок пермиссий</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.PhysicalExaminationsController">
+            <summary>
+            Контроллер для работы с медицинскими осмотрами
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.GetByMedicalHistoryId(System.Int32)">
+            <summary>
+            Получить список медосмотров по идентификатору истории болезни
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок медосмотров истории болезни</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.GetById(System.Int32)">
+            <summary>
+            Получить медосмотр по идентификатору
+            </summary>
+            <returns>Транспортная модель медосмотра</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.Post(UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto)">
+            <summary>
+            Создать новый медосмотр
+            </summary>
+            <returns>Идентификатор созанного медосмотра</returns>
+            <response code="201">Успешное создание медосмотра</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки медосмотр к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto)">
+            <summary>
+            Привязать медосмотр к истории болезни
+            </summary>
+            <param name="id">Идентификатор истории болезни</param>
+            <param name="examination">Медосмотр</param>
+            <returns>Идентификатор созданной связи</returns>
+            <response code="201">Успешная привязка медосмотра к истории болезни</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки медосмотра к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto)">
+            <summary>
+            Редактировать медосмотр
+            </summary>
+            <param name="id">Идентификатор медосмотра</param>
+            <param name="examination">Медосмотр</param>
+            <response code="200">Успешное редактирование медосмотра</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Медосмотра с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysicalExaminationsController.Delete(System.Int32)">
+            <summary>
+            Поменить медосмотр удаленным
+            </summary>
+            <param name="id">Идентификатор медосмотра</param>
+            <response code="200">Успешное удаление медосмотра</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Медосмотра с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.PhysiologicalIndicationsController">
+            <summary>
+            Контроллер для работы с физиологическими показаниями
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.GetByMedicalHistoryId(System.Int32)">
+            <summary>
+            Получить список физиологических показаний по идентификатору истории болезни
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок физиологических показаний истории болезни</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.GetById(System.Int32)">
+            <summary>
+            Получить физиологические показания по идентификатору
+            </summary>
+            <returns>Транспортная модель физиологических показаний</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.Post(UMIS.BLL.Contracts.Models.Common.PhysiologicalIndicationDto)">
+            <summary>
+            Создать новые физиологические показания
+            </summary>
+            <returns>Идентификатор созанных физиологических показаний</returns>
+            <response code="201">Успешное создание физиологических показаний</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.PhysiologicalIndicationDto)">
+            <summary>
+            Привязать физиологические показания к истории болезни
+            </summary>
+            <param name="id">Идентификатор истории болезни</param>
+            <param name="examination">Физиологические показания</param>
+            <returns>Идентификатор созданной связи</returns>
+            <response code="201">Успешная привязка физиологических показаний к истории болезни</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найдена история болезни</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки физиологических показаний к истории болезни указывается внешний ключ в поле MedicalHistoryId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.PhysiologicalIndicationDto)">
+            <summary>
+            Редактировать физиологические показания
+            </summary>
+            <param name="id">Идентификатор физиологических показаний</param>
+            <param name="examination">Физиологические показания</param>
+            <response code="200">Успешное редактирование физиологических показаний</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Физиологических показаний с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.PhysiologicalIndicationsController.Delete(System.Int32)">
+            <summary>
+            Поменить физиологические показания удаленными
+            </summary>
+            <param name="id">Идентификатор физиологических показаний</param>
+            <response code="200">Успешное удаление физиологических показаний</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Физиологических показаний с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Controllers.RolesController">
+            <summary>
+            Контроллер для работы с ролями
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.RolesController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.RolesController.GetAllRolesForEditAsync">
+            <summary>
+            Метод для получения списка доступных ролей для текущего пользователя
+            </summary>
+            <returns>Список доступных ролей</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.RolesController.CreateRoleAsync(UMIS.BLL.Contracts.Models.Auth.RoleDto)">
+            <summary>
+            Создать роль
+            </summary>
+            Необходимые пермиссии:
+            11 - Создание ролей
+            <param name="roleDto">Транспортная модель роли</param>
+            <returns>Идентификатор новой роли</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.RolesController.GetRolesList(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Метод для получения списка ролей рабочих групп с пермиссиями
+            </summary>
+            Необходимые пермиссии:
+            10 - Просмотр полной инф. о ролях
+            17 - Просмотр полной инф. рабочих групп
+            23 - Просмотр пермиссий
+            <param name="filter">Модель фильтра</param>
+            <returns>Список учетных записей пользователей</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.TestsController">
+            <summary>
+            Контроллер для проверки реализованного функционала
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.TestsController.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.TestsController.CheckGetRequest">
+            <summary>
+            Метод проверки пост запроса
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.TestsController.CheckConfigurationTransformations">
+            <summary>
+            Метод проверки пост запроса
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.TestsController.CheckAuthorizedAccess">
+            <summary>
+            Метод проверки успешной авторизации
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.TestsController.GetPermissions">
+            <summary>
+            Проверка динамической привязки пермиссий
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.UsersController">
+            <summary>
+            Контроллер для работы с пользователями.
+            </summary>
+        </member>
+        <member name="F:UMIS.Api.Controllers.UsersController._userManager">
+            <summary>
+            Менеджер по работе с учетными данными пользователей.
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.UsersController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IUserManager)">
+            <summary>
+            ctor
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:UMIS.Api.Controllers.UsersController.UserPermissionsAuthInfo(UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto)">
+            <summary>
+            Метод для регистрации нового пользователя.
+            </summary>
+            <param name="userRegistrationDto">Регистрационная модель.</param>
+            <returns>Учетные данные пользователя.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.UsersController.GetUsersList(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Метод для получения списка пользователей.
+            </summary>
+            <param name="filter">Модель фильтра.</param>
+            <returns>Список учетных записей пользователей.</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.UsersController.UserSoftDeleteAsync(System.Int32)">
+            <summary>
+            Метод для пометки пользователя удаленным.
+            </summary>
+            <param name="id">Идентификатор польователя.</param>
+            <returns>Результат успешного удаления.</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.WorkGroupRoleController">
+            <summary>
+            Контроллер для работы управления ролями в рабочих группах
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupRoleController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupRoleController.WorkgroupRoleSoftDeleteAsync(System.Int32)">
+            <summary>
+            Метод для пометки роли в рабочей группе удаленной
+            </summary>
+            <param name="id">Идентификатор роли в рабочей группе</param>
+            <returns>Результат успешного удаления</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupRoleController.UpdateWorkgroupRolePermissions(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Назначить/обновить пермиссии роли в рабочей группе
+            </summary>
+            <param name="id">Идентификатор роли в рабочей группе</param>
+            <param name="permissionsIds">Список идентификаторов пермиссий</param>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupRoleController.CreateOrGetRoleWorkgroupIdForEdit(UMIS.BLL.Contracts.Models.Auth.RoleToWorkroupDto)">
+            <summary>
+            Получить идентификатор новой/редактируемой роли в рабочей группе
+            </summary>
+            Необходимые пермиссии:
+            13 - Редактирование ролей
+            20 - Редактирование рабочих групп
+            <param name="workgroupRole"> Идентификатор роли в рабочей группы </param>
+            <returns>Идентификатор роли в рабочей группе</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.WorkGroupsController">
+            <summary>
+            Контроллер для работы с рабочими группами
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupsController.#ctor(UMIS.BLL.Contracts.ServicesAbstraction.IWorkgroupManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupsController.CreateWorkgroup(UMIS.BLL.Contracts.Models.Auth.WorkgroupDto)">
+            <summary>
+            Создать рабочую группу
+            </summary>
+            Необходимые пермиссии:
+            18 - Создание рабочих групп
+            <param name="workgroupDto">Транспортная модель роли</param>
+            <returns>Идентификатор новой роли</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkGroupsController.GetAllWorkgroupsForEditAsync">
+            <summary>
+            Метод для получения списка доступных рабочих групп для текущего пользователя
+            </summary>
+            Необходимые пермиссии:
+            17 - Просмотр все данных рабочих групп
+            <returns>Список доступных рабочих групп</returns>
+        </member>
+        <member name="T:UMIS.Api.Controllers.WorkHistoriesController">
+            <summary>
+            Контроллер для работы с трудовыми анамнезами пациентов
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.GetByPatientId(System.Int32)">
+            <summary>
+            Получить список трудовых анамнезов по идентификатору пациента
+            </summary>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <returns>Cписок трудовых анамнезов пациента</returns>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.GetById(System.Int32)">
+            <summary>
+            Получить трудовой анамнез по идентификатору
+            </summary>
+            <returns>Транспортная модель трудового анамнеза</returns>
+            <response code="200">Успешное выполнение запроса данных</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.Post(UMIS.BLL.Contracts.Models.Common.WorkHistoryDto)">
+            <summary>
+            Создать новый трудовой анамнез
+            </summary>
+            <returns>Идентификатор созанных трудового анамнеза</returns>
+            <response code="201">Успешное создание трудового анамнеза</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найден пациент</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки трудового анамнеза к пациента указывается внешний ключ в поле PatientId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.LinkFieldToCatalog(System.Int32,UMIS.BLL.Contracts.Models.Common.WorkHistoryDto)">
+            <summary>
+            Привязать трудовой анамнез к пациенту
+            </summary>
+            <param name="id">Идентификатор пациента</param>
+            <param name="workHistory">Трудовой анамнез</param>
+            <returns>Идентификатор созданной связи</returns>
+            <response code="201">Успешная привязка трудового анамнеза к пациенту</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Не найден пациент</response>
+            <response code="500">Возникло исключение на сервере</response>
+            <remarks>
+            Для привязки трудового анамнеза к пациенту указывается внешний ключ в поле PatientId
+            </remarks>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.Put(System.Int32,UMIS.BLL.Contracts.Models.Common.WorkHistoryDto)">
+            <summary>
+            Редактировать трудовой анамнез
+            </summary>
+            <param name="id">Идентификатор трудового анамнеза</param>
+            <param name="workHistory">Трудовой анамнез</param>
+            <response code="200">Успешное редактирование трудового анамнеза</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Трудовой анамнез с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="M:UMIS.Api.Controllers.WorkHistoriesController.Delete(System.Int32)">
+            <summary>
+            Поменить трудовой удаленными
+            </summary>
+            <param name="id">Идентификатор трудового анамнеза</param>
+            <response code="200">Успешное удаление трудового анамнеза</response>
+            <response code="401">Ошибка авторизации</response>
+            <response code="404">Трудовой анамнез с заданным идентификатором не найдено</response>
+            <response code="500">Возникло исключение на сервере</response>
+        </member>
+        <member name="T:UMIS.Api.Filters.CustomeExceptionHandlerFilterAsync">
+            <summary>
+            Асинхронный фильтр обработки исключений
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Filters.CustomeExceptionHandlerFilterAsync.#ctor(UMIS.BLL.Contracts.Handlers.IExceptionHandler)">
+            <summary>
+            ctor
+            </summary>
+            <param name="excpetionHandler">Менеджер обработки исключений</param>
+        </member>
+        <member name="M:UMIS.Api.Filters.CustomeExceptionHandlerFilterAsync.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Обработчик исключений
+            </summary>
+            <param name="context">Контекс исключений</param>
+        </member>
+        <member name="T:UMIS.Api.Filters.ExceptionToVoidResultFilter">
+            <summary>
+            Фильтр обработки исключений
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Filters.ExceptionToVoidResultFilter.#ctor(UMIS.BLL.Contracts.Handlers.IExceptionHandler)">
+            <summary>
+            ctor
+            </summary>
+            <param name="excpetionHandler">Менеджер обработки исключений</param>
+        </member>
+        <member name="M:UMIS.Api.Filters.ExceptionToVoidResultFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Обработчик исключений
+            </summary>
+            <param name="context">Контекс исключений</param>
+        </member>
+        <member name="T:UMIS.Api.Filters.PermissionHandleFilter">
+            <summary>
+            Фильтр для обработки пермиссий пользователя выполнябщего запрос
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Filters.PermissionHandleFilter.#ctor(UMIS.BLL.Contracts.Handlers.IAttributeHandler)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Filters.PermissionHandleFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Действия после выполнения метода контроллера
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:UMIS.Api.Filters.PermissionHandleFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Действия перед выполнением метода контроллера
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:UMIS.Api.Program">
+            <summary>
+            Точка входа в приложение
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Program.Main(System.String[])">
+            <summary>
+            Точка входа
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:UMIS.Api.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Создание хоста и заполнение конфигурации
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UMIS.Api.Startup">
+            <summary>
+            StartUp
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            StarUp
+            </summary>
+        </member>
+        <member name="P:UMIS.Api.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="F:UMIS.Api.Startup.MyAllowSpecificOrigins">
+            <summary>
+            Cors policy name
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure and add services
+            </summary>
+        </member>
+        <member name="M:UMIS.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Configure and run components
+            </summary>
+        </member>
+        <member name="T:MarketWebCoreApi.Middleware.RequestLogMiddleware">
+            <summary>
+            Класс для логирования запросов
+            </summary>
+        </member>
+        <member name="M:MarketWebCoreApi.Middleware.RequestLogMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            ctor
+            </summary>
+            <param name="next"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:MarketWebCoreApi.Middleware.RequestLogMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Метод выполнения
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

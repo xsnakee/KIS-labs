@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common</name>
+    </assembly>
+    <members>
+        <member name="T:Common.Attributes.PermissionsAttribute">
+            <summary>
+            Фильтр проверки пермиссий
+            </summary>
+        </member>
+        <member name="M:Common.Attributes.PermissionsAttribute.#ctor(System.Int32[])">
+            <summary>
+            Ctor
+            </summary>
+            <param name="permissionTypes">Список кортежей сущностей и действий</param>
+        </member>
+        <member name="P:Common.Attributes.PermissionsAttribute.PermissionsIds">
+            <summary>
+            Список пермиссий для проверки
+            </summary>
+        </member>
+        <member name="T:Common.CommonConfigurator">
+            <summary>
+            Класс позволяющий получить доступ к файлу appsettings.json 
+            В проекте, котором необходимо получить конфигурцию, должна быть добавлена ссылка на файла appsettings.json
+            </summary>
+        </member>
+        <member name="M:Common.CommonConfigurator.GetAppSettingsValue``1(System.String,``0)">
+            <summary>
+            Возвращает значение элемента в секции appSettings с указаным ключом или значение <paramref name="defaultValue"/>, если элемент не найден.
+            </summary>
+            <typeparam name="T">Тип возвращаемого значения.</typeparam>
+            <param name="defaultValue">Значение по умолчанию.</param>
+            <param name="key">Ключ.</param>
+            <returns>Значение.</returns>
+        </member>
+        <member name="M:Common.CommonConfigurator.ConvertTo``1(System.String)">
+            <summary>
+            Конвертирует строку в указанный тип, используя инвариантную культуру.
+            </summary>
+            <typeparam name="T">Тип, в который будет сконвертирована строка.</typeparam>
+            <param name="value">Строка.</param>
+            <returns>Результат конвертации.</returns>
+        </member>
+        <member name="T:Common.Constants">
+            <summary>
+            Константы
+            </summary>
+        </member>
+        <member name="P:Common.Constants.DefaultPageNumber">
+            <summary>
+            Номер страницы фильра по умолчанию
+            </summary>
+        </member>
+        <member name="P:Common.Constants.DefaultPageSize">
+            <summary>
+            Количество записей на странице по умолчанию
+            </summary>
+        </member>
+        <member name="F:Common.Constants.DefaultDateTimeFormat">
+            <summary>
+            Формат даты по умолчанию
+            </summary>
+        </member>
+        <member name="T:Common.Enums.AssignmentTypeEnum">
+            <summary>
+            Тип назначений
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.MedicalTest">
+            <summary>
+            Анализ
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.Operation">
+            <summary>
+            Операция
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.Procedure">
+            <summary>
+            Процедура
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.MedicalExamination">
+            <summary>
+            Обследование
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.PhysicalExamination">
+            <summary>
+            Врачебный осмотр
+            </summary>
+        </member>
+        <member name="F:Common.Enums.AssignmentTypeEnum.PhysiologicalIndication">
+            <summary>
+            Снятие физиологических показаний
+            </summary>
+        </member>
+        <member name="T:Common.Enums.BloodTypeEnum">
+            <summary>
+            Группа крови/Резус
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.None">
+            <summary>
+            Отсутствует
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.FirstPositive">
+            <summary>
+            Первая/Резус +
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.FirstNegative">
+            <summary>
+            Первая/Резус -
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.SecondPositive">
+            <summary>
+            Вторая/Резус +
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.SecondNegative">
+            <summary>
+            Вторая/Резус -
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.ThirdPositive">
+            <summary>
+            Третья/Резус +
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.ThirdNegative">
+            <summary>
+            Третья/Резус -
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.FourthPositive">
+            <summary>
+            Четвертая/Резус +
+            </summary>
+        </member>
+        <member name="F:Common.Enums.BloodTypeEnum.FourthNegative">
+            <summary>
+            Четвертая/Резус -
+            </summary>
+        </member>
+        <member name="T:Common.Enums.DataTypeEnum">
+            <summary>
+            Типы данных
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.String">
+            <summary>
+            Строка
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.Integer">
+            <summary>
+            Целое число
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.Double">
+            <summary>
+            Число с плавающей точкой
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.Decimal">
+            <summary>
+            Денежный эквивалент
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.RangeString">
+            <summary>
+            Диапазон строковый
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.RangeInteger">
+            <summary>
+            Диапазон целочисленный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DataTypeEnum.RangeDouble">
+            <summary>
+            Диапазон чисел с плавающей точкой
+            </summary>
+        </member>
+        <member name="T:Common.Enums.DiagnosisTypeEnum">
+            <summary>
+            Типы диагнозов
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DiagnosisTypeEnum.Undefined">
+            <summary>
+            Неопределен
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DiagnosisTypeEnum.Estimated">
+            <summary>
+            Предположительный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DiagnosisTypeEnum.Confirmed">
+            <summary>
+            Подтвержденный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DiagnosisTypeEnum.Some">
+            <summary>
+            Несколько диагнозов(смешанный)
+            </summary>
+        </member>
+        <member name="T:Common.Enums.DisabilityGroupEnum">
+            <summary>
+            Группы инвалидности
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DisabilityGroupEnum.None">
+            <summary>
+            Информация отсутствует
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DisabilityGroupEnum.First">
+            <summary>
+            Первая
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DisabilityGroupEnum.Second">
+            <summary>
+            Вторая
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DisabilityGroupEnum.Third">
+            <summary>
+            Третья
+            </summary>
+        </member>
+        <member name="F:Common.Enums.DisabilityGroupEnum.Child">
+            <summary>
+            Третья
+            </summary>
+        </member>
+        <member name="T:Common.Enums.EntityTypeEnum">
+            <summary>
+            Перечисление сущностей системы
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.System">
+            <summary>
+            Система
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.User">
+            <summary>
+            Пользователь (медработник)
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.Role">
+            <summary>
+            Роль
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.Workgroup">
+            <summary>
+            Рабочая группа
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.Permission">
+            <summary>
+            Привелегия/Разрешение
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.Patient">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="F:Common.Enums.EntityTypeEnum.MedicalHistory">
+            <summary>
+            История болезни.
+            </summary>
+        </member>
+        <member name="T:Common.Enums.GenderEnum">
+            <summary>
+            Пол
+            </summary>
+        </member>
+        <member name="F:Common.Enums.GenderEnum.None">
+            <summary>
+            Информация отсутствует
+            </summary>
+        </member>
+        <member name="F:Common.Enums.GenderEnum.Male">
+            <summary>
+            Мужской
+            </summary>
+        </member>
+        <member name="F:Common.Enums.GenderEnum.Female">
+            <summary>
+            Женский
+            </summary>
+        </member>
+        <member name="T:Common.Enums.MedicalAnamnesisTypeEnum">
+            <summary>
+            Тип анамнеза
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalAnamnesisTypeEnum.Regular">
+            <summary>
+            Очередной (регулярный)
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalAnamnesisTypeEnum.Primary">
+            <summary>
+            Первичный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalAnamnesisTypeEnum.Commmon">
+            <summary>
+            Обычный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalAnamnesisTypeEnum.Emergency">
+            <summary>
+            Экстренный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalAnamnesisTypeEnum.NotRegular">
+            <summary>
+            Внеочередной
+            </summary>
+        </member>
+        <member name="T:Common.Enums.MedicalExaminationTypeEnum">
+            <summary>
+            Тип медицинского обследования
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalExaminationTypeEnum.Common">
+            <summary>
+            Обычное
+            </summary>
+        </member>
+        <member name="F:Common.Enums.MedicalExaminationTypeEnum.Emergency">
+            <summary>
+            Экстренное
+            </summary>
+        </member>
+        <member name="T:Common.Enums.PermissionsActionEnum">
+            <summary>
+            Перечисление возможных действий над сущностями
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.View">
+            <summary>
+            Информация о пользователе
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.DeepView">
+            <summary>
+            Информация о пользователе
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.Create">
+            <summary>
+            Создание сущности
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.Update">
+            <summary>
+            Добавление информации о сущности
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.Edit">
+            <summary>
+            Редактирование сущности
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.SoftDelete">
+            <summary>
+            Удаление сущности
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PermissionsActionEnum.Delete">
+            <summary>
+            Удаление сущности
+            </summary>
+        </member>
+        <member name="T:Common.Enums.PhysicalExaminationTypeEnum">
+            <summary>
+            Типы осмотров
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.Regular">
+            <summary>
+            Очередной (регулярный)
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.Primary">
+            <summary>
+            Первичный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.Commmon">
+            <summary>
+            Обычный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.Emergency">
+            <summary>
+            Экстренный
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.NotRegular">
+            <summary>
+            Внеочередной
+            </summary>
+        </member>
+        <member name="F:Common.Enums.PhysicalExaminationTypeEnum.Pre_medical">
+            <summary>
+            Доврачебный
+            </summary>
+        </member>
+        <member name="T:Common.Exceptions.CustomException">
+            <summary>
+            Базовый тип исключений АПИ
+            </summary>
+        </member>
+        <member name="P:Common.Exceptions.CustomException.StatusCode">
+            <summary>
+            Возвращаемый код ошибки
+            </summary>
+        </member>
+        <member name="P:Common.Exceptions.CustomException.EntityId">
+            <summary>
+            Идентификатор сущности связанной с исключением
+            </summary>
+        </member>
+        <member name="P:Common.Exceptions.CustomException.EntityType">
+            <summary>
+            Тип сущности
+            </summary>
+        </member>
+        <member name="T:Common.Exceptions.EntityNotFoundException">
+            <summary>
+            Тип исключения при неудачном поиск сущности
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.EntityNotFoundException.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.EntityNotFoundException.#ctor(System.String)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.EntityNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.EntityNotFoundException.#ctor(System.String,System.Nullable{System.Int32},System.Nullable{Common.Enums.EntityTypeEnum},System.Nullable{System.Net.HttpStatusCode})">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.EntityNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="T:Common.Exceptions.UnauthorizedException">
+            <summary>
+            Исключение при ошибке доступа
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.UnauthorizedException.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.UnauthorizedException.#ctor(System.String)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.UnauthorizedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.UnauthorizedException.#ctor(System.String,System.Nullable{System.Int32},System.Nullable{Common.Enums.EntityTypeEnum},System.Nullable{System.Net.HttpStatusCode})">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.UnauthorizedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="T:Common.Exceptions.ValidationException">
+            <summary>
+            Валидационное исключение
+            </summary>
+        </member>
+        <member name="P:Common.Exceptions.ValidationException.ValidationResult">
+            <summary>
+            Результат валидации
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor(System.String)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor(System.String,System.Nullable{System.Int32},System.Nullable{Common.Enums.EntityTypeEnum})">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Common.Exceptions.ValidationException.#ctor(Common.Models.Results.IValidationResult)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="T:Common.Helpers.AttributesHelper">
+            <summary>
+            Методы расширения для получения атрибутов
+            </summary>
+        </member>
+        <member name="M:Common.Helpers.AttributesHelper.GetDescriptionAttribute``1(``0)">
+            <summary>
+            Получить значение Description атрибута у сущности
+            </summary>
+            <typeparam name="T">Тип сущности</typeparam>
+            <param name="entity">Сущность</param>
+            <returns>Опиание сущности из Description атрибута</returns>
+        </member>
+        <member name="T:Common.Models.Filters.BaseFilter">
+            <summary>
+            Базовая модель фильтра
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.PageNumber">
+            <summary>
+            Номер страницы
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.PageSize">
+            <summary>
+            Количество позиций на страницу
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.SortDirection">
+            <summary>
+            Направление сортировки (ask,desc)
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.SortField">
+            <summary>
+            Имя поля сортировки
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.KeyWords">
+            <summary>
+            Ключевые слова 
+            для каждой сущности, при фильтрации можно использовать различные поля
+            </summary>
+        </member>
+        <member name="P:Common.Models.Filters.BaseFilter.WithRemoved">
+            <summary>
+            Просмотр удаленых сущностей
+            </summary>
+        </member>
+        <member name="T:Common.Models.Results.IValidationResult">
+            <summary>
+            Результат валидации с накоплением ошибок
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.IValidationResult.IsFailed">
+            <summary>
+            Признак успешности валидации
+            </summary>
+        </member>
+        <member name="M:Common.Models.Results.IValidationResult.AddError(System.String,System.String)">
+            <summary>
+            Добавить ошибку
+            </summary>
+            <param name="key">Ключ добавления</param>
+            <param name="errorMessage">Сообщение об ошибке</param>
+        </member>
+        <member name="P:Common.Models.Results.IValidationResult.Errors">
+            <summary>
+            Словарь ошибок валидации
+            </summary>
+        </member>
+        <member name="T:Common.Models.Results.JsonResult`1">
+            <summary>
+            стандартный Http ответ с данными 
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Common.Models.Results.JsonResult`1.Data">
+            <summary>
+            Данные
+            </summary>
+        </member>
+        <member name="M:Common.Models.Results.JsonResult`1.#ctor(`0,System.Net.HttpStatusCode,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="T:Common.Models.Results.JsonVoidResult">
+            <summary>
+            Стандартный HTTP Ответ
+            </summary>
+        </member>
+        <member name="F:Common.Models.Results.JsonVoidResult.DefaultEncoding">
+            <summary>
+            Encoding по умолчанию
+            </summary>
+        </member>
+        <member name="F:Common.Models.Results.JsonVoidResult.DefaultContentType">
+            <summary>
+            Content-Type по умолчанию
+            </summary>
+        </member>
+        <member name="F:Common.Models.Results.JsonVoidResult.JsonSerializerSettings">
+            <summary>
+            Настройки для JSON сериализатора
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.JsonVoidResult.StatusCode">
+            <summary>
+            Код ответа http
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.JsonVoidResult.Message">
+            <summary>
+            Сообщение об ошибке
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.JsonVoidResult.Errors">
+            <summary>
+            Результаты валидации
+            </summary>
+        </member>
+        <member name="M:Common.Models.Results.JsonVoidResult.#ctor(System.Net.HttpStatusCode,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Common.Models.Results.JsonVoidResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <summary>
+            Обработчик ответа
+            </summary>
+            <param name="context">Контекст выполнения запроса</param>
+        </member>
+        <member name="T:Common.Models.Results.PaginationDictionaryResult`2">
+            <summary>
+            Постраничный результат словарь
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+        </member>
+        <member name="M:Common.Models.Results.PaginationDictionaryResult`2.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationDictionaryResult`2.TotalPages">
+            <summary>
+            Общее кол-во страниц
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationDictionaryResult`2.CurrentPage">
+            <summary>
+            Номер текущей страницы
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationDictionaryResult`2.TotalRecords">
+            <summary>
+            Общее кол-во записей
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationDictionaryResult`2.Items">
+            <summary>
+            Данные
+            </summary>
+        </member>
+        <member name="T:Common.Models.Results.PaginationResult`1">
+            <summary>
+            Постраничный результат
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Common.Models.Results.PaginationResult`1.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationResult`1.TotalPages">
+            <summary>
+            Общее кол-во страниц
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationResult`1.CurrentPage">
+            <summary>
+            Номер текущей страницы
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationResult`1.TotalRecords">
+            <summary>
+            Общее кол-во записей
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.PaginationResult`1.Items">
+            <summary>
+            Данные
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.ValidationResult.IsFailed">
+            <summary>
+            Статус валидации
+            </summary>
+        </member>
+        <member name="P:Common.Models.Results.ValidationResult.Errors">
+            <summary>
+            Список ошибок
+            </summary>
+        </member>
+        <member name="M:Common.Models.Results.ValidationResult.AddError(System.String,System.String)">
+            <summary>
+            Метод добавления ошибок
+            </summary>
+            <param name="key"></param>
+            <param name="errorMessage"></param>
+        </member>
+        <member name="T:Common.Resources.Messages.Messages">
+            <summary>
+            Шаблонные сообщения системы
+            TODO: перенести в ресурсы
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMIS.BLL.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributes(System.Action)">
+            <summary>
+            Обработка атрибутов вызываемого метода без возвращаемого значения
+            </summary>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributes``1(System.Func{``0})">
+            <summary>
+            Обработка атрибутов вызываемого метода c возвращаемым значением
+            </summary>
+            <typeparam name="T">Тип возвращаемого методом значения</typeparam>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributes``2(System.Func{``0,``1})">
+            <summary>
+            Обработка атрибутов вызываемого метода c возвращаемым значением
+            </summary>
+            <typeparam name="T">Тип возвращаемого методом значения</typeparam>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributesAsync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Обработка атрибутов вызываемого метода без возвращаемого значения
+            </summary>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributesAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Обработка атрибутов вызываемого метода c возвращаемым значением
+            </summary>
+            <typeparam name="T">Тип возвращаемого методом значения</typeparam>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAttributesAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Обработка атрибутов вызываемого метода c возвращаемым значением
+            </summary>
+            <typeparam name="T">Тип возвращаемого методом значения</typeparam>
+            <param name="func">Метод</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.Handle(Common.Attributes.ICustomAttribute)">
+            <summary>
+            Перегрузка метода обработки атрибутов
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IAttributeHandler.HandleAsync(Common.Attributes.ICustomAttribute)">
+            <summary>
+            Перегрузка метода обработки атрибутов
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IExceptionHandler.InternalExecuteAction(System.Func{Microsoft.AspNetCore.Mvc.IActionResult})">
+            <summary>
+            Обертка для вызова метода с обработкой ошибок
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IExceptionHandler.InternalExecuteActionAsync(System.Func{System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}})">
+            <summary>
+            Обертка для вызова ассинхронного метода с обработкой ошибок
+            </summary>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IExceptionHandler.ConvertCustomExceptionToResult``1(``0)">
+            <summary>
+            Преобразование исключения к стандартному ответу API
+            </summary>
+            <returns>Стандартный ответ API</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Handlers.IExceptionHandler.ConvertExceptionToResult``1(``0)">
+            <summary>
+            Преобразование исключения к стандартному ответу API
+            </summary>
+            <returns>Стандартный ответ API</returns>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.PermissionDto.Name">
+            <summary>
+            Наименование
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.PermissionDto.EntityTypeNum">
+            <summary>
+            Типа сущности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.PermissionDto.EntityTypeTitle">
+            <summary>
+            Описание типа сущности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.PermissionDto.ActionTypeNum">
+            <summary>
+            Тип действия
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.RoleDto">
+            <summary>
+            Роль
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.RoleDto.Name">
+            <summary>
+            Наименование роли
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.RoleDto.AllowedOnlyForOwner">
+            <summary>
+            Имеет доступ только создатель сущности
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.RoleToWorkroupDto">
+            <summary>
+            Роль в рабочей группе
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto">
+            <summary>
+            Учетные данные пользователя 
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.PhoneNumber">
+            <summary>
+            Телефонный номер
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.Email">
+            <summary>
+            Электронная почта
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.UserName">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.Permissions">
+            <summary>
+            Список привелегий
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.Roles">
+            <summary>
+            Роли
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserAuthInfoDto.Workgroups">
+            <summary>
+            Рабочие группы
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.UserLoginDto">
+            <summary>
+            Модель пользователя для входа в систему
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserLoginDto.Login">
+            <summary>
+            Логин
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserLoginDto.Password">
+            <summary>
+            Пароль
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserLoginDto.RememberMe">
+            <summary>
+            Запомнить пользователя (24 часа)
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto">
+            <summary>
+            Сущность для регистрации пользователей
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto.UserName">
+            <summary>
+            Логин пользователя
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto.Email">
+            <summary>
+            E-mail пользователя
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto.Password">
+            <summary>
+            Пароль
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto.PhoneNumber">
+            <summary>
+            Номер телефона
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.WorkgroupDto">
+            <summary>
+            Рабочая группа
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.WorkgroupDto.Name">
+            <summary>
+            Наименование рабочей группы
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.WorkgroupDto.Roles">
+            <summary>
+            Роли рабочией группы
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Auth.WorkgroupRolePermissionDto">
+            <summary>
+            Модель связи ролей рабочих групп и пермиссий
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.WorkgroupRolePermissionDto.Role">
+            <summary>
+            Роль
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.WorkgroupRolePermissionDto.Workgroup">
+            <summary>
+            Рабочая группа
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Auth.WorkgroupRolePermissionDto.Permissions">
+            <summary>
+            Список пермиссий
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Base.BaseDto">
+            <summary>
+            Базовый транспортный объект
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.BaseDto.Id">
+            <summary>
+            Идентификатор сущности
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Base.BaseDtoWithTimestamp">
+            <summary>
+            Базовая сущность c датами создания и модификации
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.BaseDtoWithTimestamp.CreateDate">
+            <summary>
+            Дата создания объекта
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.BaseDtoWithTimestamp.LastModificationDate">
+            <summary>
+            Дата последнего изменения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Base.IBaseDto`1">
+            <summary>
+            Базовый транспортный объект
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.IBaseDto`1.Id">
+            <summary>
+            Идентификатор сущности
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Base.IBaseDtoWithTimestamp">
+            <summary>
+            Базовая сущность в датами создания и модификации
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.IBaseDtoWithTimestamp.CreateDate">
+            <summary>
+            Дата создания объекта
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Base.IBaseDtoWithTimestamp.LastModificationDate">
+            <summary>
+            Дата последнего изменения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.AllergyAnamnesisDto">
+            <summary>
+            Аллергоанамнез.
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AllergyAnamnesisDto.PatientId">
+            <summary>
+            Идентификатор пациента.
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AllergyAnamnesisDto.Note">
+            <summary>
+            Словесное описание.
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.AssignmentDto">
+            <summary>
+            Назначение
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AssignmentDto.AssignmentType">
+            <summary>
+            Тип назначения
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AssignmentDto.MedicalTestResultId">
+            <summary>
+            Результат анализа
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AssignmentDto.MedicalExaminationId">
+            <summary>
+            Результат обследования
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AssignmentDto.PhysiologicalExaminationId">
+            <summary>
+            Результат осмотра
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.AssignmentDto.PhysiologicalIndicationId">
+            <summary>
+            Результат снятия физиологических показаний
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.Base.BaseCommonDto">
+            <summary>
+            Обертка значения из справочника
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.Base.IBaseCommonDto">
+            <summary>
+            Обертка значения из справочника
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto">
+            <summary>
+            Справочник
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto.CatalogType">
+            <summary>
+            Тип каталога
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto.Name">
+            <summary>
+            Название справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogDto.CatalogToCatalogFields">
+            <summary>
+            Поля справочника
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto">
+            <summary>
+            Поле справочника
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto.Name">
+            <summary>
+            Название поля
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto.DataType">
+            <summary>
+            Тип данных
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldDto.CatalogToCatalogField">
+            <summary>
+            Отношение справочника к полю справочника
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueDto">
+            <summary>
+            Значение поля справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueDto.CatalogToCatalogField">
+            <summary>
+            Отношение справочника к полю справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueDto.Value">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueDto.Value2">
+            <summary>
+            Значение2 (используется для диапазонов)
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto">
+            <summary>
+            Значение из справочника 
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.FieldName">
+            <summary>
+            Название поля
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.DataType">
+            <summary>
+            Тип данных
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.CatalogTypeName">
+            <summary>
+            Тип каталога
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.CatalogName">
+            <summary>
+            Название справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.DefaultValue">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.DefaultValue2">
+            <summary>
+            Значение по умолчанию (используется из диапазона)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.Value">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.Value2">
+            <summary>
+            Значение2 (используется для диапазонов)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogFieldValueViewDto.Units">
+            <summary>
+            Единица измерения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto">
+            <summary>
+            Тип справочника
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto.Name">
+            <summary>
+            Название типа
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.CatalogTypeDto.Catalog">
+            <summary>
+            Каталог
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto">
+            <summary>
+            Связь справоника и его полей
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto.Catalog">
+            <summary>
+            Справочник
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto.CatalogField">
+            <summary>
+            Поле справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto.DefaultValue">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto.DefaultValue2">
+            <summary>
+            Значение по умолчанию (используется из диапазона)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.Catalogs.RelationsEntityDto.CatalogToCatalogFieldDto.Units">
+            <summary>
+            Единица измерения
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.DiagnosisDto.AnamnesisType">
+            <summary>
+            Тип анамнеза
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.DiagnosisDto.Description">
+            <summary>
+            Словесное описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.DisabilityDescriptionDto">
+            <summary>
+            Описание инвалидности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.DisabilityDescriptionDto.DisabilityGroup">
+            <summary>
+            Группа инвалидности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.DisabilityDescriptionDto.PatientId">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.DisabilityDescriptionDto.Note">
+            <summary>
+            Словесное описание
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MediacalAnamnesisDto.AnamnesisType">
+            <summary>
+            Тип анамнеза
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MediacalAnamnesisDto.Description">
+            <summary>
+            Словесное описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.MedicalExaminationDto">
+            <summary>
+            Медицинское обследование
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalExaminationDto.MedicalExaminationType">
+            <summary>
+            Тип обследования
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalExaminationDto.Description">
+            <summary>
+            Описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto">
+            <summary>
+            История болезни
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.PatientId">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.MedicalAnamneses">
+            <summary>
+            Анамнезы
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.PhysiologicalIndications">
+            <summary>
+            Физиологические показания
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.MedicalExaminations">
+            <summary>
+            Обследования
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.PhysicalExaminations">
+            <summary>
+            Осмотры
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.Diagnoses">
+            <summary>
+            Диагнозы
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.Notes">
+            <summary>
+            Заметки
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto.Assignments">
+            <summary>
+            Назначения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto">
+            <summary>
+            Заметка для истории болезни
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto.Subject">
+            <summary>
+            Тема
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalHistoryNoteDto.Content">
+            <summary>
+            Текст
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.MedicalTestResultDto">
+            <summary>
+            Результаты анализа
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.MedicalTestResultDto.Description">
+            <summary>
+            Описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.PatientDto">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Common.PatientDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Surname">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Name">
+            <summary>
+            Фамилия
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Patronymic">
+            <summary>
+            Отчество
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Passport">
+            <summary>
+            Паспорт (серия/номер)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.SNILS">
+            <summary>
+            СНИЛС
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.OMC">
+            <summary>
+            Номер ОМС
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Phone">
+            <summary>
+            Список телефонов
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Address">
+            <summary>
+            Адреса (прописки, проживания)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Email">
+            <summary>
+            Электронная почта
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Birthday">
+            <summary>
+            Дата рождения
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.Gender">
+            <summary>
+            Пол
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.BloodGroup">
+            <summary>
+            Группа крови
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.DisabilityDescription">
+            <summary>
+            Уточнение/описание группы инвалидности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.MedicalHistories">
+            <summary>
+            Истории болезней
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.WorkHistory">
+            <summary>
+            Трудовой анамнез
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PatientDto.AllergyAnamnesis">
+            <summary>
+            Аллерго анамнез
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto">
+            <summary>
+            Осмотр
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto.PhysicalExaminationType">
+            <summary>
+            Тип осмотр
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PhysicalExaminationDto.Description">
+            <summary>
+            Словесное описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.PhysiologicalIndicationDto">
+            <summary>
+            Физиологические показания
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.PhysiologicalIndicationDto.Note">
+            <summary>
+            Словесное описание
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Common.WorkHistoryDto">
+            <summary>
+            Трудовой анамнез.
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.WorkHistoryDto.PatientId">
+            <summary>
+            Идентификатор пациента.
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Common.WorkHistoryDto.Note">
+            <summary>
+            Заметка.
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto">
+            <summary>
+            Значение из справочника 
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.FieldName">
+            <summary>
+            Название поля
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.DataType">
+            <summary>
+            Тип данных
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.CatalogTypeName">
+            <summary>
+            Тип каталога
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.CatalogName">
+            <summary>
+            Название справочника
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.DefaultValue">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.DefaultValue2">
+            <summary>
+            Значение по умолчанию (используется из диапазона)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.Value">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.Value2">
+            <summary>
+            Значение2 (используется для диапазонов)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.Catalogs.CatalogFieldValueForViewDto.Units">
+            <summary>
+            Единица измерения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto">
+            <summary>
+            История болезни
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.PatientId">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.MedicalAnamneses">
+            <summary>
+            Анамнезы
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.PhysiologicalIndications">
+            <summary>
+            Физиологические показания
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.MedicalExaminations">
+            <summary>
+            Обследования
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.PhysicalExaminations">
+            <summary>
+            Осмотры
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.Diagnoses">
+            <summary>
+            Диагнозы
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.Notes">
+            <summary>
+            Заметки
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.MedicalHistoryForViewDto.Assignments">
+            <summary>
+            Назначения
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto">
+            <summary>
+            Пациент
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Surname">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Name">
+            <summary>
+            Фамилия
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Patronymic">
+            <summary>
+            Отчество
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Passport">
+            <summary>
+            Паспорт (серия/номер)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.SNILS">
+            <summary>
+            СНИЛС
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.OMC">
+            <summary>
+            Номер ОМС
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Phone">
+            <summary>
+            Список телефонов
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Address">
+            <summary>
+            Адреса (прописки, проживания)
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Email">
+            <summary>
+            Электронная почта
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Birthday">
+            <summary>
+            Дата рождения
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.Gender">
+            <summary>
+            Пол
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.BloodGroup">
+            <summary>
+            Группа крови
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.DisabilityDescription">
+            <summary>
+            Уточнение/описание группы инвалидности
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.MedicalHistories">
+            <summary>
+            Истории болезней
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.WorkHistory">
+            <summary>
+            Трудовой анамнез
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.AllergyAnamnesis">
+            <summary>
+            Аллерго анамнез
+            </summary>
+        </member>
+        <member name="P:UMIS.BLL.Contracts.Models.Views.Common.PatientForViewDto.CatalogFields">
+            <summary>
+            Справочники
+            </summary>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.ServicesAbstraction.IAuthManager">
+            <summary>
+            Менеджер по работе с авторизацией
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IAuthManager.LoginAsync(UMIS.BLL.Contracts.Models.Auth.UserLoginDto)">
+            <summary>
+            Валидация пользователя и выдача токена
+            </summary>
+            <param name="loginDto">Данные для входа пользователя</param>
+            <returns>JWT токен</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IAuthManager.GetCurrentUseInfoAsync">
+            <summary>
+            Метод получения данных пользователя из контекста запроса
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IAuthManager.CheckCurrentUserPermissionsAsync(System.Int32[])">
+            <summary>
+            Проверка пермиссий текщуего пользователя на соответствие
+            </summary>
+            <param name="permissionIds">Список пермиссий</param>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager">
+            <summary>
+            Менеджер по работе с пермиссиями
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.GetPermissionsForUserEditAsync">
+            <summary>
+            Получить пермиссии доступные пользователю
+            </summary>
+            <returns>Список пермиссий</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.GetPermissionsWithWorkgroupRolesAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить роли рабочих групп с пермиссиями
+            </summary>
+            <param name="filter">Модель базового фильтра</param>
+            <returns>Постраничный список ролей рабочих групп с пермиссиями</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.CreateOrEditRoleWorkgroupPermissionsAsync(UMIS.BLL.Contracts.Models.Auth.RoleToWorkroupDto)">
+            <summary>
+            Создает/редактирует роль в рабочей группе и/или возвращает её идентификатор
+            </summary>
+            <param name="workgroupId">Идентификатор рабочей группы</param>
+            <param name="roleId">Идентификатор роли</param>
+            <returns>Идентификатор роли в рабочей группе</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.GetPermissionsByWorkgroupRoleIdAsync(System.Int32)">
+            <summary>
+            Получить список пермиссий по идентификатора роли в рабочей группе
+            </summary>
+            <param name="workgroupRoleId">Идентификатор роли в рабочей группе</param>
+            <returns>Список пермиссий</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.UpdateWorkgroupRolePermissionsAsync(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Назначить/обновить пермиссии роли в рабочей группе
+            </summary>
+            <param name="workgroupRoleId">Идентификатор роли в рабочей группе</param>
+            <param name="permissionsIds">Список идентификаторов пермиссий</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IPermissionManager.WorkgroupRoleSoftDeleteAsync(System.Int32)">
+            <summary>
+            Метод для пометки роли в рабочей группе удаленной
+            </summary>
+            <param name="id">Идентификатор роли в рабочей группе</param>
+            <returns>Результат успешного удаления</returns>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager">
+            <summary>
+            Менеджер по работе с ролями
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager.GetRolesForUserEditAsync">
+            <summary>
+            Получить список доступных ролей
+            </summary>
+            <returns>Список доступных ролей</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager.GetRolesByFilterAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить постраничный список ролей с пермиссиями для просмотра
+            </summary>
+            <param name="filter">Модель фильтра</param>
+            <returns>Постраничный результат</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager.GetWorkgroupsRolesWithPermissionsAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить роли рабочих групп с пермиссиями
+            </summary>
+            <param name="filter">Модель базового фильтра</param>
+            <returns>Постраничный список ролей рабочих групп с пермиссиями</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IRoleManager.CreateRoleAsync(UMIS.BLL.Contracts.Models.Auth.RoleDto)">
+            <summary>
+            Создать роль
+            </summary>
+            <param name="roleDto">Транспортная модель роли</param>
+            <returns>Идентификатор новой роли</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IUserManager.RegisterUser(UMIS.BLL.Contracts.Models.Auth.UserRegistrationDto)">
+            <summary>
+            Зарегистрировать нового пользователя
+            </summary>
+            <param name="userDto">Модель пользователя для регистрации</param>
+            <returns>Идентификатор пользователя</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IUserManager.AddUserToRoleWorkgroup(System.Int32,System.Int32)">
+            <summary>
+            Добавить пользователя к роли в рабочей группе
+            </summary>
+            <param name="userId">Идентификатор пользователя</param>
+            <param name="roleWorkgroupId">Идентификатор роли в рабочей группе</param>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IUserManager.GetUsersAuthDataByFilterAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить список пользователей для просмотра
+            </summary>
+            <param name="filter">Модель фильтра</param>
+            <returns>Постраничный результат</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IUserManager.UserSoftDeleteAsync(System.Int32)">
+            <summary>
+            Метод для пометки пользователя удаленным
+            </summary>
+            <param name="id">Идентификатор польователя</param>
+            <returns>Результат успешного удаления</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IWorkgroupManager.GetWorkGroupsWithRolesAsync">
+            <summary>
+            Получить список рабочих групп
+            </summary>
+            <returns>Список рабочих групп</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IWorkgroupManager.CreateWorkgroupAsync(UMIS.BLL.Contracts.Models.Auth.WorkgroupDto)">
+            <summary>
+            Создать рабочую группу, с пустой(null) ролью
+            </summary>
+            <param name="workgroupDto">Транспортная модель рабочей группы</param>
+            <returns>Идентификатор новой роли в рабочей группы</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.IWorkgroupManager.GetWorkgroupsForUserEditAsync">
+            <summary>
+            Получить список доступных рабочих групп для прользователя
+            </summary>
+            <returns>Список доступных рабочих групп</returns>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.ServicesAbstraction.Common.IMedicalHistoryManager">
+            <summary>
+            Менеджер для работы c историей болезни
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IMedicalHistoryManager.CreateMedicalHistoryAsync(UMIS.BLL.Contracts.Models.Common.MedicalHistoryDto)">
+            <summary>
+            Создать новую историю болезни.
+            </summary>
+            <param name="medicalHistory">История болезни.</param>
+            <returns>Присвоенный идентификатор истории болезни.</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IMedicalHistoryManager.GetMedicalHistoryByIdAsync(System.Int32)">
+            <summary>
+            Получить историю болезни по идентфиру.
+            </summary>
+            <param name="id">Идентификатор истории болезни.</param>
+            <returns>Пациент</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IMedicalHistoryManager.GetMedicalHistoriesByFilterAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить постраничный список существующих историй болезней.
+            </summary>
+            <param name="filter">Фильтр</param>
+            <returns>Постраничный список пациентов</returns>
+        </member>
+        <member name="T:UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager">
+            <summary>
+            Менеджер для работы с пациентами
+            </summary>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager.GetPatientByIdAsync(System.Int32)">
+            <summary>
+            Получить данные пользователя по идентификатору
+            </summary>
+            <param name="id">Идентификатор пациента</param>
+            <returns>Пациент</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager.RegisterPatientAsync(UMIS.BLL.Contracts.Models.Common.PatientDto)">
+            <summary>
+            Зарегистрировать нового пациента
+            </summary>
+            <param name="patient">Пациент</param>
+            <returns>Присвоенный идентификатор пациента</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager.GetPatientsByFilterAsync(Common.Models.Filters.BaseFilter)">
+            <summary>
+            Получить постраничный список пациентов
+            </summary>
+            <param name="filter">Фильтр</param>
+            <returns>Постраничный список пациентов</returns>
+        </member>
+        <member name="M:UMIS.BLL.Contracts.ServicesAbstraction.Common.IPatientManager.EditPatientAsync(UMIS.BLL.Contracts.Models.Common.PatientDto)">
+            <summary>
+            Обновить данные пациента
+            </summary>
+            <param name="patient">Пациент</param>
+        </member>
+    </members>
+</doc>
