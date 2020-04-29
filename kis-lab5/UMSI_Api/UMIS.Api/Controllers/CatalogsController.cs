@@ -1,0 +1,168 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using Common.Models.Results;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using UMIS.Api.Controllers.Base;
+using UMIS.BLL.Contracts.Models.Common.Catalogs;
+
+namespace UMIS.Api.Controllers
+{
+    /// <summary>
+    /// Контроллер для работы со справочниками
+    /// </summary>
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CatalogsController : BaseApiController
+    {
+        /// <summary>
+        /// Счетчик идентификаторов
+        /// </summary>
+        public static int CatalogId { get; set; } = 0;
+
+        /// <summary>
+        /// Получить список справочников
+        /// </summary>
+        /// <response code="200">Успешное выполнение запроса данных</response>
+        /// <response code="401">Ошибка авторизации</response>
+        /// <response code="500">Возникло исключение на сервере</response>
+        /// <returns>Cписок справочников</returns>
+        [HttpGet("")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(JsonResult<List<CatalogDto>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status500InternalServerError)]
+        public JsonResult<List<CatalogDto>> Get()
+        {
+            return new JsonResult<List<CatalogDto>>()
+            {
+                Errors = null,
+                StatusCode = HttpStatusCode.OK,
+                Data = new List<CatalogDto>()
+                {
+                    new CatalogDto
+                    {
+                        Id = 1,
+                        Name = "Тестовый справочник1",
+                        CreateDate = DateTime.UtcNow,
+                        LastModificationDate = DateTime.UtcNow
+                    },
+                        new CatalogDto
+                    {
+                        Id = 2,
+                        Name = "Тестовый справочник2",
+                        CreateDate = DateTime.UtcNow,
+                        LastModificationDate = DateTime.UtcNow
+                    },
+
+                },
+                Message = null
+            };
+        }
+
+        /// <summary>
+        /// Получить справочник по идентификатору
+        /// </summary>
+        /// <param name="id">Идентификатор справочника</param>
+        /// <returns>Транспортная модель справочника</returns>
+        /// <response code="200">Успешное выполнение запроса данных</response>
+        /// <response code="401">Ошибка авторизации</response>
+        /// <response code="500">Возникло исключение на сервере</response>
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(JsonResult<CatalogDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status500InternalServerError)]
+        public JsonResult<CatalogDto> GetById([FromRoute]int id)
+        {
+            return new JsonResult<CatalogDto>()
+            {
+                Errors = null,
+                StatusCode = HttpStatusCode.OK,
+                Data = new CatalogDto
+                {
+                    Id = id,
+                    Name = "Тестовый справочник",
+                    CreateDate = DateTime.UtcNow,
+                    LastModificationDate = DateTime.UtcNow
+                },
+                Message = null
+            };
+
+        }
+
+        /// <summary>
+        /// Создать новый справочник
+        /// </summary>
+        /// <param name="catalog">Справочник</param>
+        /// <returns>Идентификатор созанного справочника</returns>
+        /// <response code="201">Успешное создание справочника</response>
+        /// <response code="401">Ошибка авторизации</response>
+        /// <response code="500">Возникло исключение на сервере</response>
+        [HttpPost("")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(JsonResult<int>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status500InternalServerError)]
+        public IActionResult Post([FromBody] CatalogDto catalog)
+        {
+            return new JsonResult<int>
+            {
+                Errors = null,
+                StatusCode = HttpStatusCode.Created,
+                Data = CatalogsController.CatalogId++,
+                Message = null
+            };
+        }
+
+        /// <summary>
+        /// Редактировать справочник
+        /// </summary>
+        /// <param name="id">Идентификатор справочника</param>
+        /// <param name="catalog">Справочник</param>
+        /// <response code="200">Успешное редактирование справочника</response>
+        /// <response code="401">Ошибка авторизации</response>
+        /// <response code="404">Справочник с заданным идентификатором не найден</response>
+        /// <response code="500">Возникло исключение на сервере</response>
+        [HttpPut("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status500InternalServerError)]
+        public IActionResult Put([FromRoute]int id, [FromBody] CatalogDto catalog)
+        {
+            return new JsonVoidResult
+            {
+                Errors = null,
+                StatusCode = HttpStatusCode.OK,
+                Message = null
+            };
+        }
+
+        /// <summary>
+        /// Пометить справочник удаленным
+        /// </summary>
+        /// <param name="id">Идентификатор справочника</param>
+        /// <response code="200">Успешное удаление справочника</response>
+        /// <response code="401">Ошибка авторизации</response>
+        /// <response code="404">Справочник с заданным идентификатором не найден</response>
+        /// <response code="500">Возникло исключение на сервере</response>
+        [HttpDelete("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(JsonVoidResult), StatusCodes.Status500InternalServerError)]
+        public IActionResult Delete([FromRoute]int id)
+        {
+            return new JsonVoidResult
+            {
+                Errors = null,
+                StatusCode = HttpStatusCode.OK,
+                Message = null
+            };
+        }
+    }
+}

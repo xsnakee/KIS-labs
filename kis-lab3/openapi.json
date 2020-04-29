@@ -151,8 +151,7 @@
             "put": {
                 "tags": [ "AllergyAnamnesis" ],
                 "summary": "Редактировать аллергоанамнез",
-                "operationId": "EditAllergyAnamnesis",
-                
+                "operationId": "EditAllergyAnamnesis",                
                 "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
                 "produces": [ "application/json" ],
                 "parameters": [
